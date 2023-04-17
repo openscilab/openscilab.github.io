@@ -1,0 +1,2 @@
+(this["webpackJsonposl-landing-frontend"]=this["webpackJsonposl-landing-frontend"]||[]).push([[8],{697:function(n,s,t){"use strict";t.r(s),s.default=t.p+"static/media/regular.fa.f130e9dd.svg"}}]);
+//# sourceMappingURL=8.70ba2cf3.chunk.js.map
