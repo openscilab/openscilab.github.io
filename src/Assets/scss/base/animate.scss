@@ -1,0 +1,46 @@
+@keyframes JoinLetter {
+	0% {
+		opacity: 0;
+		letter-spacing: 1.6rem;
+	}
+
+	100% {
+		opacity: 1;
+		letter-spacing: 0.2rem;
+	}
+}
+
+@keyframes FloatUpDown {
+	0% {
+		@apply mb-0;
+	}
+
+	50% {
+		@apply mb-4;
+	}
+
+	100% {
+		@apply mb-0;
+	}
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes blinking {
+	0% {
+		border-right-color: transparent;
+	}
+	50% {
+		border-right-color: $blue;
+	}
+	100% {
+		border-right-color: transparent;
+	}
+}

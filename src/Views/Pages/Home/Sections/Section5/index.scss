@@ -1,0 +1,197 @@
+.home-section-layout-5 {
+	@apply w-full h-full px-10 sm:px-12 md:px-20;
+
+	.donate-card {
+		@apply w-full h-full mx-auto pt-24 md:pt-0;
+		max-width: 1000px;
+
+		@include down(380px) {
+			@apply pt-10;
+		}
+
+		.donate-content {
+			@apply text-white flex-center flex-col md:h-full pb-20 md:pb-0 text-center;
+
+			@include down(380px) {
+				@apply pb-4;
+			}
+
+			p {
+				@apply text-xl;
+				line-height: 2.5rem;
+			}
+		}
+
+		.btn-wrapper {
+			@apply flex flex-col md:flex-col sm:flex-row md:h-full items-center sm:justify-between md:justify-center sm:items-end pt-5;
+
+			.rs-btn {
+				@apply mb-6 w-40 py-1.5 md:py-2 flex-center bg-tertiary font-semibold;
+
+				@include up(sm) {
+					@include down(md) {
+						width: 23%;
+					}
+				}
+
+				&:hover {
+					@apply text-white;
+				}
+			}
+		}
+	}
+
+	&.mounted {
+		.btn-wrapper {
+			@apply as as-flipInY;
+		}
+
+		.donate-content {
+			@apply as as-fadeInUp as-fast;
+		}
+	}
+
+	@include theme_mode(light) {
+		.donate-content {
+			@apply text-black;
+		}
+	}
+}
+
+.wallets-modal {
+	width: 31.5rem;
+	@apply border-2 border-primary rounded-2xl p-0;
+
+	.d-xmark {
+		@apply w-4 absolute top-5 right-5 cursor-pointer text-primary hover:text-error transform hover:scale-125 transition-all duration-100;
+	}
+
+	.rs-modal-content {
+		background: #202326;
+		@apply rounded-2xl text-white text-opacity-80 px-0 pb-0;
+	}
+
+	.rs-modal-header-close {
+		@apply hidden;
+	}
+
+	.fa-icon {
+		@apply w-4;
+	}
+
+	.rs-modal-header {
+		@apply text-lg border-primary px-7;
+	}
+
+	.rs-modal-body {
+		@apply flex-center flex-col;
+	}
+
+	.card {
+		width: 28rem;
+		background: rgb(13, 77, 102);
+		background: radial-gradient(circle at left top, rgba(13, 77, 102, 0.4) 0%, rgba(21, 24, 29, 1) 100%);
+		@apply rounded-lg p-6 my-4 transform transition-all duration-300 hover:-translate-y-1 border-l-0 border-primary;
+
+		.wallet {
+			@apply text-base bg-black bg-opacity-20 p-2 rounded-lg flex-center font-light;
+			color: #fff;
+		}
+
+		.header {
+			@apply flex items-center font-medium text-base mb-4 relative;
+
+			.icon-wrapper {
+				background: rgb(13, 77, 102);
+				@apply w-12 h-12 rounded-lg flex-center filter mr-4;
+
+				svg {
+					fill: white;
+				}
+			}
+
+			.r-clipboard {
+				background: rgba(13, 77, 102, 0.3);
+				@apply absolute right-0 w-10 p-2 cursor-pointer rounded-lg transition-all duration-200;
+
+				@include theme_mode(dark) {
+					&:hover {
+						background: rgba(13, 77, 102, 1);
+					}
+				}
+			}
+		}
+
+		&.focused {
+			@apply border-l-2;
+		}
+	}
+
+	.footer {
+		@apply flex-center w-full mb-2;
+
+		.tooltip {
+			@apply px-4 py-1 rounded-lg as as-fadeInLeft as-faster;
+			background: rgb(13, 77, 102);
+		}
+	}
+
+	@include theme_mode(light) {
+		.rs-modal-content {
+			@apply bg-light text-black;
+
+			.card {
+				background: $light;
+				-webkit-box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
+				box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
+
+				&:hover {
+					-webkit-box-shadow: 0px 5px 15px 5px rgba(50, 130, 184, 0.4);
+					box-shadow: 0px 5px 15px 5px rgba(50, 130, 184, 0.4);
+				}
+
+				.header {
+					.icon-wrapper {
+						@apply bg-primary;
+					}
+
+					.r-clipboard {
+						@apply bg-primary text-white hover:bg-opacity-80;
+					}
+				}
+
+				.wallet {
+					@apply text-black;
+				}
+			}
+
+			.tooltip {
+				@apply text-white bg-primary;
+			}
+		}
+	}
+
+	@include down(550px) {
+		width: 100vw;
+		height: 100vh;
+		@apply p-0 m-0 border-0;
+
+		.rs-modal-content {
+			width: 100vw;
+			height: 100vh;
+			@apply overflow-y-auto overflow-x-hidden;
+
+			.rs-modal-body {
+				max-height: unset !important;
+			}
+		}
+
+		.card {
+			width: 22rem;
+
+			.wallet {
+				@apply text-xs;
+			}
+		}
+	}
+}

@@ -1,0 +1,433 @@
+@import '@assets/scss/base/export.scss';
+
+.home-section-layout-3 {
+	@apply w-full h-full m-auto flex-center px-6 sm:px-20 md:pt-14;
+	max-width: 1360px;
+
+	.section3-slider-container {
+		height: 48vh;
+		@apply w-full relative;
+
+		@include down(md) {
+			height: 85vh;
+			margin-top: 2vh;
+
+			@include up(380px) {
+				height: 80vh;
+				margin-top: 5vh;
+			}
+		}
+
+		.d-angle-right,
+		.d-angle-left {
+			@apply w-6 text-primary absolute top-1/3  z-10 cursor-pointer as as-fadeIn;
+
+			&.d-angle-right {
+				@apply right-0 lg:-right-10;
+			}
+
+			&.d-angle-left {
+				@apply left-0 lg:-left-10;
+			}
+		}
+
+		&.last {
+			.d-angle-right {
+				@apply hidden;
+			}
+		}
+
+		&.first {
+			.d-angle-left {
+				@apply hidden;
+			}
+		}
+
+		.section3-slider {
+			@apply w-full h-full px-3 flex justify-center md:items-center;
+		}
+
+		.swiper-wrapper {
+			height: 90%;
+			@apply w-full;
+		}
+
+		.swiper-pagination {
+			bottom: 0 !important;
+			left: unset !important;
+
+			.swiper-pagination-bullet-active {
+				transform: none;
+				border-radius: 50%;
+				width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px)) !important;
+				height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px)) !important;
+			}
+		}
+
+		.swiper-slide {
+			@apply w-full rounded-3xl;
+
+			.slide-content {
+				@apply w-full rounded-3xl flex items-center flex-col-reverse md:flex-row justify-between;
+
+				.project-info {
+					@apply md:mr-12 lg:mr-24 rounded-3xl h-full relative w-full pt-6 md:pt-10;
+
+					@include down(md) {
+						@apply flex-center flex-col text-center;
+					}
+
+					h2 {
+						@apply text-2xl sm:text-3xl font-semibold mb-3 text-primary;
+						animation: JoinLetter 1s forwards;
+					}
+
+					p {
+						@apply text-base my-2 overflow-hidden relative;
+						--line-height: 2.2rem;
+						--max-lines: 3;
+						max-height: calc(var(--line-height) * var(--max-lines));
+						line-height: var(--line-height);
+						text-align: justify;
+
+						&::before {
+							content: '';
+							height: var(--line-height);
+							@apply w-full absolute bottom-0 pointer-events-none;
+							background-image: linear-gradient(to bottom, transparent, $secondary);
+						}
+						@include down(550px) {
+							@apply text-sm;
+							line-height: 1.7rem;
+						}
+					}
+
+					img {
+						@apply w-10 h-10;
+					}
+
+					.rs-panel-header {
+						@apply text-white text-opacity-80 p-0 cursor-default;
+
+						p {
+							@apply pb-0;
+						}
+					}
+
+					.rs-panel-body {
+						@apply p-0;
+
+						p {
+							@apply pt-0;
+						}
+					}
+
+					.read-more-btn-wrapper {
+						@apply flex-center;
+
+						.read-more-btn {
+							@apply bg-transparent border-0 text-primary filter transition-all duration-300 font-bold;
+
+							.fa-icon {
+								@apply transition-all duration-300;
+							}
+
+							&:hover {
+								@apply brightness-125;
+
+								.fa-icon {
+									@apply transform -rotate-90;
+								}
+							}
+						}
+					}
+
+					&.readable {
+						.read-more-btn {
+							.fa-icon {
+								@apply transform rotate-180;
+							}
+						}
+
+						.fader-box {
+							@apply opacity-0;
+						}
+					}
+
+					.social {
+						@apply flex items-center mt-4;
+
+						.fa-icon {
+							@apply w-6 h-6 mr-4 transition-all cursor-pointer text-tertiary;
+
+							&:hover {
+								scale: 1.2;
+								@apply text-primary;
+							}
+						}
+					}
+				}
+
+				.project-img-info {
+					@apply mb-4 overflow-hidden bg-secondary rounded-3xl;
+					width: 50rem;
+					height: 16rem;
+
+					@include down(md) {
+						width: 55vw;
+					}
+
+					@include down(550px) {
+						width: 20rem;
+						height: 16rem;
+						@apply border border-primary mb-4;
+					}
+
+					@include down(380px) {
+						width: 18rem;
+						height: 13rem;
+					}
+
+					@include up(550px) {
+						@apply img-shadow;
+					}
+
+					.row {
+						@apply w-full h-1/2 flex-center text-lg;
+
+						&.first-row {
+							@apply border-b border-primary bg-primary bg-opacity-5 hover:bg-opacity-10 cursor-pointer overflow-hidden transition-all duration-500;
+
+							.project-logo {
+								@apply w-1/2 h-full transition-all duration-700 transform;
+
+								@include theme_mode(dark) {
+									&.pycm {
+										g:nth-of-type(3) {
+											path {
+												fill: white !important;
+											}
+										}
+									}
+
+									&:not(.pycm) {
+										g:nth-of-type(4) {
+											path {
+												fill: white !important;
+											}
+										}
+									}
+								}
+							}
+						}
+
+						&.second-row {
+							@apply flex-col py-3;
+
+							.cell {
+								@apply flex-center w-full h-full;
+
+								.icon {
+									@apply w-8 h-8 pr-1 mb-0.5;
+								}
+
+								&.first-cell {
+									.forks-wrapper,
+									.stars-wrapper {
+										@apply w-full h-full flex-center;
+
+										span {
+											@apply font-medium opacity-50;
+										}
+									}
+								}
+
+								&.second-cell {
+									@apply pr-4;
+
+									.icon {
+										@apply w-9 h-9 pr-1 mb-0.5;
+									}
+								}
+
+								.link {
+									@apply flex-center cursor-pointer;
+
+									span {
+										@apply transition-all duration-300;
+									}
+
+									&:hover {
+										span {
+											@apply opacity-100 text-primary;
+										}
+									}
+								}
+							}
+						}
+					}
+
+					&:hover {
+						.first-row {
+							.project-logo {
+								@apply scale-110;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include theme_mode(light) {
+			.swiper-slide {
+				.slide-content {
+					.project-img-info {
+						color: #202020 !important;
+						@apply bg-light;
+
+						.row.first-row {
+							@apply bg-secondary bg-opacity-5 hover:bg-opacity-10;
+						}
+					}
+
+					.project-info {
+						p {
+							color: #202020 !important;
+
+							&::before {
+								background-image: linear-gradient(to bottom, transparent, $light);
+							}
+						}
+
+						.fa-icon {
+							color: $primary !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.mounted {
+		.slide-content {
+			.project-info {
+				@apply as as-fadeInUp as-fast;
+			}
+
+			.project-img-info {
+				@apply as as-fadeInRight as-fast;
+
+				.row {
+					.second-cell {
+						span {
+							@apply overflow-hidden whitespace-nowrap w-0 border-r;
+							animation: typing 0.8s steps(30, end) 0.9s forwards, blinking 1s infinite;
+						}
+					}
+				}
+			}
+
+			@include down(md) {
+				.project-info {
+					@apply as as-fadeInLeft as-fast;
+				}
+
+				.project-picture {
+					@apply as as-fadeInRight as-fast;
+				}
+			}
+		}
+	}
+}
+
+.project-modal {
+	@apply border-2 border-primary rounded-2xl;
+
+	.rs-modal-content {
+		@apply relative p-7 rounded-2xl;
+	}
+
+	.d-xmark {
+		@apply w-4 absolute top-5 right-5 cursor-pointer text-primary hover:text-error transform hover:scale-125 transition-all duration-100;
+	}
+
+	.social {
+		@apply flex items-center justify-center mt-4;
+
+		.fa-icon {
+			@apply w-6 h-6 mr-4 transition-all cursor-pointer text-tertiary;
+
+			&:hover {
+				scale: 1.2;
+				@apply text-primary;
+			}
+		}
+	}
+
+	.modal-logo {
+		@apply w-full h-32;
+
+		&.pycm {
+			@apply h-20 my-14;
+		}
+
+		&:not(.pycm) {
+			@apply transform scale-125;
+		}
+	}
+
+	p {
+		@apply text-base p-2 text-center;
+		line-height: 2.2rem;
+	}
+
+	@include theme_mode(dark) {
+		.rs-modal-content {
+			@apply bg-secondary text-light;
+		}
+
+		.modal-logo {
+			&.pycm {
+				g:nth-of-type(3) {
+					path {
+						fill: white !important;
+					}
+				}
+			}
+
+			&:not(.pycm) {
+				g:nth-of-type(4) {
+					path {
+						fill: white !important;
+					}
+				}
+			}
+		}
+	}
+
+	@include theme_mode(light) {
+		@apply bg-light text-secondary;
+
+		.social {
+			.fa-icon {
+				@apply text-primary;
+			}
+		}
+	}
+
+	@include down(550px) {
+		width: 100vw;
+		height: 100vh;
+		@apply p-0 m-0 border-0;
+
+		.rs-modal-content {
+			width: 100vw;
+			min-height: 100vh;
+			@apply overflow-hidden;
+
+			.modal-logo.pycm {
+				@apply my-8;
+			}
+		}
+	}
+}

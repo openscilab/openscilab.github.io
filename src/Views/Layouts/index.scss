@@ -1,0 +1,11 @@
+.root-layout {
+	@apply flex flex-col h-screen bg-secondary;
+
+	.root-children {
+		height: 100%;
+	}
+
+	@include theme_mode(light) {
+		@apply bg-light;
+	}
+}

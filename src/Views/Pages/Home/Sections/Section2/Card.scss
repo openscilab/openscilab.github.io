@@ -1,0 +1,105 @@
+.team-card {
+	height: 18rem;
+
+	.card-panel {
+		@apply h-full transition-all overflow-visible rounded-2xl bg-quaternary bg-opacity-20 backdrop-filter backdrop-blur-sm;
+
+		&:hover {
+			-webkit-box-shadow: 0px 0px 14px 9px rgba(50, 130, 184, 0.32);
+			box-shadow: 0px 0px 14px 9px rgba(50, 130, 184, 0.32);
+
+			.img-container {
+				@apply scale-110;
+
+				.img-wrapper {
+					-webkit-box-shadow: 0px 0px 14px 9px rgba(50, 130, 184, 0.2);
+					box-shadow: 0px 0px 14px 9px rgba(50, 130, 184, 0.2);
+
+					img {
+						filter: grayscale(0);
+					}
+				}
+			}
+		}
+
+		.img-container {
+			@apply absolute left-0 -top-11 flex-center w-full transform transition-all duration-300;
+
+			.img-wrapper {
+				@apply bg-primary p-0.5 w-28 h-28 shadow-light z-10 rounded-full;
+
+				img {
+					filter: grayscale(0.9);
+					@apply w-full h-full rounded-full object-cover;
+				}
+			}
+		}
+
+		.card-header {
+			padding-top: 76px;
+			@apply flex-center text-center;
+
+			.header-title {
+				h2 {
+					@apply text-xl font-semibold;
+					line-height: 1;
+				}
+
+				h3 {
+					@apply text-sm text-gray-dark opacity-80 font-medium pt-1;
+				}
+			}
+		}
+
+		.card-description {
+			p {
+				@apply text-base pt-4 text-center px-3 opacity-80;
+			}
+		}
+
+		.footer {
+			height: 1.625rem;
+			@apply absolute bottom-0 left-0 right-0 overflow-visible bg-primary bg-opacity-40 flex-center z-0 transition-all duration-300 rounded-b-2xl;
+
+			&:hover {
+				@apply h-12;
+			}
+
+			.fa-icon {
+				width: 16px;
+			}
+
+			.social {
+				border-radius: 10px;
+				@apply bg-tertiary text-primary p-1.5 mx-2 shadow-md hover:shadow-lg transform hover:scale-110 z-10 absolute bottom-3;
+
+				&.linkedin {
+					left: 36%;
+				}
+
+				&.github {
+					left: 49%;
+				}
+			}
+		}
+	}
+
+	@include theme_mode(light) {
+		.card-panel {
+			@apply border-primary bg-opacity-20 bg-tertiary backdrop-filter backdrop-blur-sm;
+
+			.card-header {
+				h2,
+				h3 {
+					@apply text-primary;
+				}
+			}
+
+			.card-description {
+				p {
+					color: #202020;
+				}
+			}
+		}
+	}
+}

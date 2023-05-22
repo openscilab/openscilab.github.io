@@ -1,0 +1,26 @@
+@import '@assets/scss/base/export.scss';
+
+.full-page-swiper {
+	@apply w-full flex-col;
+	height: calc(100vh - (#{$navbar} + #{$footer}));
+
+	.swiper-wrapper {
+		height: calc(100vh - (#{$navbar} + #{$footer}));
+	}
+	.swiper-pagination {
+		@apply left-4 rounded-md;
+		right: unset !important;
+	}
+	.swiper-pagination-bullet {
+		@apply bg-primary;
+		margin-bottom: 1rem !important;
+		transition: 100ms all ease-in-out;
+	}
+	.swiper-pagination-bullet-active {
+		@apply bg-opacity-80;
+		height: 20px;
+		width: 5px;
+		border-radius: 3px;
+		transform: translateX(10px);
+	}
+}

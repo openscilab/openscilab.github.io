@@ -1,0 +1,132 @@
+.home-section-layout-1 {
+	@apply w-full h-full flex-center;
+	margin: auto;
+	max-width: 1300px;
+
+	.section1-slider-container {
+		height: 55vh;
+		@apply w-full relative;
+
+		@include down(md) {
+			height: 80vh;
+			margin-top: 5vh;
+		}
+
+		.d-angle-right,
+		.d-angle-left {
+			@apply w-6 text-primary absolute top-1/2 z-10 cursor-pointer as as-fadeIn;
+
+			&.d-angle-right {
+				@apply right-12 lg:-right-10;
+			}
+
+			&.d-angle-left {
+				@apply left-12 lg:-left-10;
+			}
+		}
+
+		&.last {
+			.d-angle-right {
+				@apply hidden;
+			}
+		}
+
+		&.first {
+			.d-angle-left {
+				@apply hidden;
+			}
+		}
+
+		.section1-slider,
+		.swiper-wrapper {
+			@apply w-full h-full;
+		}
+
+		.swiper-pagination {
+			bottom: 0 !important;
+			left: unset !important;
+
+			.swiper-pagination-bullet-active {
+				transform: none;
+				border-radius: 50%;
+				width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px)) !important;
+				height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px)) !important;
+			}
+		}
+
+		.swiper-slide {
+			@apply w-full h-full rounded-3xl flex items-center flex-col md:flex-row justify-between px-6 sm:px-20;
+
+			@include down(lg) {
+				height: 80%;
+			}
+
+			img {
+				width: 40vh;
+				height: 40vh;
+				@apply rounded-3xl object-contain bg-black;
+
+				@include up(md) {
+					@apply img-shadow;
+				}
+
+				@include down(md) {
+					width: 45vh;
+					height: 45vh;
+				}
+
+				@include down(550px) {
+					width: 20rem;
+					height: 20rem;
+				}
+			}
+
+			.content {
+				@apply md:ml-20 lg:mx-24 mt-6 md:mt-0 rounded-3xl w-full;
+
+				@include down(md) {
+					@apply flex-center flex-col text-center;
+				}
+
+				h3 {
+					@apply text-3xl font-medium mb-5;
+				}
+
+				p {
+					@apply text-lg w-full;
+					line-height: 2.2rem;
+
+					@include up(sm) {
+						line-height: 2.5rem;
+					}
+				}
+			}
+		}
+	}
+
+	&.mounted {
+		.swiper-slide {
+			img {
+				@apply as as-fadeInUp as-fast;
+			}
+
+			.content {
+				@apply as as-fadeInRight as-fast;
+			}
+		}
+	}
+
+	@include theme_mode(light) {
+		.swiper-slide {
+			@apply bg-opacity-100 text-black border-primary;
+
+			.content {
+				@apply bg-light bg-opacity-50;
+			}
+
+			img {
+				@apply bg-white;
+			}
+		}
+	}
+}

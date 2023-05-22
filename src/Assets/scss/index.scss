@@ -1,0 +1,62 @@
+@import './base/export';
+
+* {
+	@apply box-border;
+}
+
+html {
+	@apply bg-light;
+	scroll-behavior: smooth;
+	overflow-y: scroll;
+}
+
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	@apply m-0 p-0 w-full h-full absolute;
+	#root {
+		@apply min-h-full overflow-auto bg-light;
+	}
+	&::-webkit-scrollbar {
+		@apply w-1 bg-secondary;
+	}
+	&::-webkit-scrollbar-thumb {
+		@apply bg-primary bg-opacity-30 rounded-lg;
+	}
+
+	&.rs-modal-has-backdrop {
+		padding-right: 0 !important;
+	}
+}
+
+code {
+	@apply font-semibold;
+	font-family: 'JetBrains Mono', monospace;
+}
+
+.fa-icon {
+	@apply fill-current;
+}
+
+a:hover {
+	@apply no-underline;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill,
+input:-webkit-autofill:hover,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.hide-scrollbar {
+	&::-webkit-scrollbar {
+		display: none !important;
+	}
+}

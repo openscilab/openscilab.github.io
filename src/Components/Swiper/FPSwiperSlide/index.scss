@@ -1,0 +1,6 @@
+@import '@assets/scss/base/export.scss';
+
+.full-page-swiper-slide {
+	@apply overflow-auto;
+	min-height: calc(100vh - (#{$navbar} + #{$footer}));
+}

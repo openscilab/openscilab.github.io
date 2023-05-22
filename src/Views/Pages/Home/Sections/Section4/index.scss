@@ -1,0 +1,143 @@
+.home-section-layout-4 {
+	@apply w-full;
+
+	.contact-content {
+		@apply m-auto sm:px-14 pb-8 rounded-2xl;
+		max-width: 30ch;
+		width: 78vw;
+
+		.header {
+			@apply text-center mb-8 sm:mb-12;
+
+			h2 {
+				@apply font-semibold text-primary;
+			}
+
+			@include down(500px) {
+				h2 {
+					@apply text-2xl;
+				}
+			}
+		}
+
+		.contact-form {
+			.labeled-wrapper {
+				@apply rounded-lg bg-white backdrop-filter backdrop-blur-sm animate-fade-in;
+				--tw-bg-opacity: 0.04;
+
+				.label {
+					@apply text-white opacity-90;
+				}
+
+				input,
+				textarea {
+					@apply p-4 text-sm rounded-lg text-white;
+
+					-webkit-text-fill-color: white;
+
+					&::placeholder {
+						-webkit-text-fill-color: rgba(255, 255, 255, 0.432) !important;
+					}
+				}
+			}
+
+			.selector,
+			.input-selector {
+				margin-bottom: 8%;
+
+				.rs-picker {
+					@apply pl-0;
+				}
+
+				.rs-picker-toggle-value {
+					@apply text-sm;
+					color: white !important;
+				}
+
+				.rs-picker-toggle-placeholder {
+					color: rgba(255, 255, 255, 0.432) !important;
+				}
+			}
+
+			@include down(sm) {
+				.labeled-wrapper {
+					min-height: 2.5rem;
+
+					input,
+					.rs-picker {
+						height: 2.5rem;
+					}
+				}
+			}
+
+			.editable-input {
+				@apply w-full transition-all;
+				margin-bottom: 10%;
+			}
+
+			.fa-btn {
+				@apply flex-center text-white bg-gray-dark bg-opacity-60 text-base w-full m-auto py-1 sm:py-2 rounded-lg;
+
+				&.ready-to-submit {
+					@apply bg-primary;
+
+					&:hover {
+						background-color: #14659b;
+					}
+				}
+			}
+
+			.form-footer {
+				@apply flex items-center;
+
+				.r-arrows-rotate {
+					@apply w-5 text-primary cursor-pointer opacity-70 hover:opacity-100;
+				}
+			}
+		}
+	}
+
+	&.mounted {
+		.header {
+			h2 {
+				animation: JoinLetter 1s forwards;
+			}
+		}
+	}
+
+	@include theme_mode(light) {
+		.contact-content {
+			.label {
+				color: $primary !important;
+			}
+
+			h2 {
+				@apply text-primary;
+			}
+
+			.contact-form {
+				.labeled-wrapper {
+					@apply bg-gray-50 bg-opacity-40;
+
+					input,
+					textarea {
+						-webkit-text-fill-color: $dark;
+						color: $dark;
+
+						&::placeholder {
+							-webkit-text-fill-color: rgba(34, 34, 34, 0.5) !important;
+						}
+					}
+
+					.rs-picker-toggle-value {
+						color: $dark !important;
+					}
+
+					.rs-picker-toggle-placeholder {
+						-webkit-text-fill-color: rgba(34, 34, 34, 0.5) !important;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,279 @@
+@import '@assets/scss/base/export.scss';
+
+.navbar-layout {
+	@apply flex items-center pointer-events-none w-full z-50 bg-transparent;
+
+	.fa-icon {
+		@apply w-4;
+	}
+
+	.rs-navbar {
+		height: $navbar;
+		@apply flex bg-transparent items-center px-8 md:px-20 w-full transition-all duration-300;
+
+		.rs-navbar-item {
+			font-family: 'Roboto';
+			@apply text-white text-opacity-50 pointer-events-auto font-normal text-lg rounded-lg flex-center;
+
+			@include up(md) {
+				margin-left: 0 !important;
+
+				.neon-btn.rs-btn .child {
+					min-width: unset !important;
+				}
+			}
+
+			.neon-btn {
+				.child {
+					@include down(lg) {
+						min-width: 4rem;
+					}
+				}
+			}
+			&,
+			.rs-ripple-pond,
+			.rs-ripple {
+				border: none !important;
+			}
+
+			&:hover {
+				@apply text-white text-opacity-100 font-normal bg-transparent;
+			}
+
+			&.light-back {
+				@apply text-secondary text-opacity-50;
+			}
+
+			&.light-back:hover {
+				@apply text-secondary;
+			}
+		}
+
+		.rs-navbar-brand {
+			@apply p-0 pointer-events-auto cursor-pointer;
+		}
+
+		img[alt='osl-logo'] {
+			@apply transition-all h-full;
+			width: 100px;
+
+			@include down(1550px) {
+				width: 90px;
+			}
+
+			@include down(550px) {
+				width: 80px;
+			}
+		}
+
+		a {
+			@apply flex-center;
+		}
+
+		.rs-navbar-nav {
+			@apply ml-auto flex items-center;
+		}
+
+		.hamburger-react {
+			@apply pointer-events-auto ml-auto;
+			width: 40px !important;
+			margin-top: 6px;
+
+			div {
+				height: 2.5px !important;
+			}
+		}
+
+		.toggle-theme-mode {
+			@apply flex items-center justify-between w-14 h-7 ml-10 rounded-md overflow-hidden;
+
+			.fa-icon {
+				padding-left: 5px;
+				padding-right: 5px;
+				@apply w-full pointer-events-auto cursor-pointer h-full text-white bg-white bg-opacity-5 transition-all duration-300;
+
+				&.d-brightness {
+					@apply hover:bg-yellow-50;
+
+					&:hover {
+						color: #242725;
+						@apply bg-opacity-70;
+					}
+				}
+
+				&.d-moon {
+					@apply border-gray-dark hover:bg-blue-50;
+
+					&:hover {
+						color: #242725;
+						@apply bg-opacity-70;
+					}
+				}
+
+				&.selected {
+					@apply bg-opacity-30;
+				}
+			}
+		}
+	}
+
+	@include theme_mode(light) {
+		@apply bg-transparent;
+
+		.rs-ripple {
+			@apply hidden;
+		}
+
+		.rs-navbar-item {
+			.neon-btn {
+				@apply text-black;
+
+				&:hover {
+					@apply text-primary opacity-100;
+				}
+
+				&.selected {
+					@apply text-quaternary opacity-100;
+				}
+			}
+		}
+
+		.toggle-theme-mode {
+			.fa-icon {
+				@apply bg-black bg-opacity-5 text-gray-900;
+
+				&.selected {
+					@apply text-black;
+				}
+			}
+		}
+	}
+
+	&.navbar-minimal {
+		.rs-navbar {
+			height: 6vh;
+			-webkit-box-shadow: 0px 0px 14px 9px rgba(50, 130, 184, 0.14);
+			box-shadow: 0px 0px 14px 9px rgba(50, 130, 184, 0.14);
+		}
+
+		.rs-navbar-item {
+			font-size: 0.95rem;
+		}
+
+		.neon-btn {
+			font-size: 15px;
+		}
+	}
+}
+
+.rs-drawer {
+	width: 60vw !important;
+
+	.fa-icon {
+		@apply w-4;
+	}
+
+	.rs-drawer-content {
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		box-shadow: 0px 0px 34px 17px rgba(50, 130, 184, 0.377);
+		-webkit-box-shadow: 0px 0px 34px 17px rgba(50, 130, 184, 0.377);
+		@apply bg-secondary bg-opacity-90;
+
+		.header {
+			background-color: #070707;
+			@apply flex items-center justify-end py-3 px-7  bg-opacity-90;
+
+			h4 {
+				@apply font-medium text-base mt-2;
+			}
+
+			.hamburger-react {
+				div {
+					height: 2.5px !important;
+				}
+			}
+		}
+
+		.rs-nav {
+			@apply flex flex-col;
+
+			.rs-nav-item {
+				@apply my-2;
+
+				&:hover,
+				&:focus {
+					@apply bg-transparent;
+				}
+			}
+		}
+
+		.content {
+			@apply w-full h-full px-3;
+			background-color: #070707;
+			clip-path: polygon(0 0, 100% 0, 100% 41%, 0 73%);
+		}
+
+		@include theme_mode(light) {
+			@apply bg-light bg-opacity-90;
+
+			.header {
+				@apply bg-light;
+			}
+			.content {
+				@apply bg-light;
+
+				.neon-btn:not(.selected) {
+					@apply text-black;
+				}
+
+				.toggle-theme-mode {
+					.fa-icon {
+						@apply bg-black bg-opacity-5 text-gray-900;
+
+						&.selected {
+							@apply text-black;
+						}
+					}
+				}
+			}
+		}
+
+		.toggle-theme-mode {
+			@apply flex items-center justify-between w-14 h-7 mt-5 ml-10 rounded-md overflow-hidden;
+
+			.fa-icon {
+				padding-left: 5px;
+				padding-right: 5px;
+				@apply w-full pointer-events-auto cursor-pointer h-full text-white bg-white bg-opacity-5 transition-all duration-300;
+
+				&.d-brightness {
+					@apply hover:bg-yellow-50;
+
+					&:hover {
+						color: #242725;
+						@apply bg-opacity-70;
+					}
+				}
+
+				&.d-moon {
+					@apply border-gray-dark hover:bg-blue-50;
+
+					&:hover {
+						color: #242725;
+						@apply bg-opacity-70;
+					}
+				}
+
+				&.selected {
+					@apply bg-opacity-30;
+				}
+			}
+		}
+	}
+}
+
+.rs-drawer-backdrop.rs-anim-in {
+	opacity: 0.8;
+	background-color: #070707;
+}

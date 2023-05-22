@@ -1,0 +1,10 @@
+.infinite-linear-swiper {
+    @apply w-full;
+    .swiper-wrapper {
+        @apply flex h-full w-full items-center;
+        transition-timing-function: linear;
+    }
+    .swiper-slide {
+        @apply w-1/6 flex justify-center;
+    }
+}
