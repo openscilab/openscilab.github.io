@@ -10,6 +10,7 @@ import { ReactComponent as Star } from '@assets/icons/star.svg';
 import { ReactComponent as Link } from '@assets/icons/link.svg';
 import { Swiper, SwiperSlide, useSwiper } from '@components/Swiper';
 import { ReactComponent as Development } from '@assets/icons/development.svg';
+import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
 import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
 import { ReactComponent as PYCMHorizontal } from '@assets/Images/projects/pycm/horizontal.svg';
 import { ReactComponent as PYMILOHorizontal } from '@assets/Images/projects/pymilo/horizontal.svg';
@@ -35,14 +36,15 @@ const Section3 = () => {
 	}, [globalSwiper?.activeIndex]);
 
 	useEffect(() => {
-		projects?.forEach(p => getUserReposInfo(p?.repoName));
+		projects?.forEach(p => getUserReposInfo(p?.account, p?.repoName));
 	}, []);
 
 	// ? -------------------- Utils 👇 -------------------- //
 
-	const getUserReposInfo = async (repoName?: string) => {
+	const getUserReposInfo = async (account?: string, repoName?: string) => {
 		if (!repoName) return;
-		const res = await fetch(`https://api.github.com/repos/sepandhaghighi/${repoName}`, {
+		const acc = account || 'sepandhaghighi';
+		const res = await fetch(`https://api.github.com/repos/${acc}/${repoName}`, {
 			headers: { Authorization: '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' },
 		});
 		const item = await res?.json();
@@ -192,5 +194,17 @@ const projects = [
 		lastRelease: '',
 		logo: PYMILOHorizontal,
 		description: `Pymilo is an open source Python package that provides a simple, efficient, and safe way for users to export pre-trained machine learning models in a transparent way. By this, the exported model can be used in other environments, transferred across different platforms, and shared with others. Pymilo allows the users to export the models that are trained using popular Python libraries like scikit-learn, and then use them in deployment environments, or share them  without exposing the underlying code or dependencies. The transparency of the exported models ensures reliability and safety for the end users, as it eliminates the risks of binary or pickle formats.`,
+	},
+	{
+		logo: Nava,
+		title: 'Nava',
+		repoName: 'nava',
+		account: 'openscilab',
+		webLink: 'https://www.openscilab.com',
+		github: 'https://github.com/openscilab/nava',
+		forkPage: 'https://github.com/openscilab/nava/forks',
+		starsPage: 'https://github.com/openscilab/nava/stargazers',
+		lastRelease: 'https://github.com/openscilab/nava/releases/tag/v0.1',
+		description: `Nava is a Python library that allows users to play sound in Python without any dependencies or platform restrictions. It is a cross-platform solution that runs on any operating system, including Windows, macOS, and Linux. Its lightweight and easy-to-use design makes Nava an ideal choice for developers looking to add sound functionality to their Python programs.`,
 	},
 ];
