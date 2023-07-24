@@ -43,7 +43,7 @@ const Section3 = () => {
 
 	const getUserReposInfo = async (account?: string, repoName?: string) => {
 		if (!repoName) return;
-		const acc = account || 'sepandhaghighi';
+		const acc = account;
 		const res = await fetch(`https://api.github.com/repos/${acc}/${repoName}`, {
 			headers: { Authorization: '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' },
 		});
@@ -176,23 +176,25 @@ const projects = [
 		title: 'PyCM',
 		repoName: 'pycm',
 		logo: PYCMHorizontal,
+		account: 'sepandhaghighi',
 		webLink: 'https://www.pycm.io',
 		github: 'https://github.com/sepandhaghighi/pycm',
 		forkPage: 'https://github.com/sepandhaghighi/pycm/forks',
 		starsPage: 'https://github.com/sepandhaghighi/pycm/stargazers',
-		lastRelease: 'https://github.com/sepandhaghighi/pycm/releases/tag/v3.8',
+		lastRelease: 'https://github.com/sepandhaghighi/pycm/releases/tag/v4.0',
 		description: `PyCM is a multi-class confusion matrix library written in Python that supports both input data vectors and direct matrix, and is a proper tool for post-classification model evaluation that supports most classes and overall statistics parameters. PyCM is the swiss-army knife of confusion matrices, targeted mainly at data scientists that need a broad array of metrics for predictive models and accurate evaluation of a large variety of classifiers.`,
 	},
 
 	{
-		github: '',
-		webLink: '',
-		repoName: '',
-		forkPage: '',
-		starsPage: '',
 		title: 'Pymilo',
-		lastRelease: '',
+		repoName: 'pymilo',
 		logo: PYMILOHorizontal,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/pymilo',
+		webLink: 'https://github.com/openscilab/pymilo',
+		forkPage: 'https://github.com/openscilab/pymilo/fork',
+		starsPage: 'https://github.com/openscilab/pymilo/stargazers',
+		lastRelease: 'https://github.com/openscilab/pymilo/releases/tag/v1.0',
 		description: `Pymilo is an open source Python package that provides a simple, efficient, and safe way for users to export pre-trained machine learning models in a transparent way. By this, the exported model can be used in other environments, transferred across different platforms, and shared with others. Pymilo allows the users to export the models that are trained using popular Python libraries like scikit-learn, and then use them in deployment environments, or share them  without exposing the underlying code or dependencies. The transparency of the exported models ensures reliability and safety for the end users, as it eliminates the risks of binary or pickle formats.`,
 	},
 	{
@@ -200,8 +202,8 @@ const projects = [
 		title: 'Nava',
 		repoName: 'nava',
 		account: 'openscilab',
-		webLink: 'https://www.openscilab.com',
 		github: 'https://github.com/openscilab/nava',
+		webLink: 'https://github.com/openscilab/nava',
 		forkPage: 'https://github.com/openscilab/nava/forks',
 		starsPage: 'https://github.com/openscilab/nava/stargazers',
 		lastRelease: 'https://github.com/openscilab/nava/releases/tag/v0.1',

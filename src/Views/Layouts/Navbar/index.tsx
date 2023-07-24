@@ -8,10 +8,10 @@ import useHash from '@src/Tools/Hooks/useHash';
 import { FC, useState, useEffect } from 'react';
 import NeonBtn from '@components/NeonBtn/NeonBtn';
 import useDashboard from '@tools/Hooks/useDashboard';
+import useIsFirst from '@src/Tools/Hooks/useIsFirst';
 import { Divide as Hamburger } from 'hamburger-react';
 import { classes, classNames } from '@tools/Utils/React';
 import AHQ_TEXTED_logo from '../../../Assets/icons/logo-with-text.svg';
-import useIsFirst from '@src/Tools/Hooks/useIsFirst';
 
 type NavBar_Props = { themeMode: any; setThemeMode: (mode: any) => void };
 
@@ -20,8 +20,8 @@ const NavBar: FC<NavBar_Props> = ({ themeMode, setThemeMode }) => {
 	const { isMobile } = useWindow();
 	const { swiper } = useDashboard();
 	const [isOpen, setOpen] = useState(false);
-	const [currentSection, setCurrentSection] = useState(0);
 	const { hasHash, addHash, removeHash } = useHash();
+	const [currentSection, setCurrentSection] = useState(0);
 
 	//? ------------------ vars -------------------------------------------------------------------------------
 
