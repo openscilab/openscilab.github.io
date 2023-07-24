@@ -53,14 +53,16 @@ const Section3 = () => {
 		setRepos(s => ({ ...s, [repoName]: { forks: forks_count, stars: stargazers_count } }));
 	};
 
-	const social = (gitLink: string, webLink: string) => (
+	const social = (gitLink: string, webLink?: string) => (
 		<div className='social'>
 			<a href={gitLink} target='_blank' rel='noreferrer'>
 				<FaIcon fa='b-github' />
 			</a>
-			<a href={webLink} target='_blank' rel='noreferrer'>
-				<FaIcon fa='s-globe' />
-			</a>
+			{webLink && (
+				<a href={webLink} target='_blank' rel='noreferrer'>
+					<FaIcon fa='s-globe' />
+				</a>
+			)}
 		</div>
 	);
 
@@ -191,7 +193,7 @@ const projects = [
 		logo: PYMILOHorizontal,
 		account: 'openscilab',
 		github: 'https://github.com/openscilab/pymilo',
-		webLink: 'https://github.com/openscilab/pymilo',
+		// webLink: 'https://github.com/openscilab/pymilo',
 		forkPage: 'https://github.com/openscilab/pymilo/fork',
 		starsPage: 'https://github.com/openscilab/pymilo/stargazers',
 		lastRelease: 'https://github.com/openscilab/pymilo/releases/tag/v1.0',
@@ -203,7 +205,7 @@ const projects = [
 		repoName: 'nava',
 		account: 'openscilab',
 		github: 'https://github.com/openscilab/nava',
-		webLink: 'https://github.com/openscilab/nava',
+		// webLink: 'https://github.com/openscilab/nava',
 		forkPage: 'https://github.com/openscilab/nava/forks',
 		starsPage: 'https://github.com/openscilab/nava/stargazers',
 		lastRelease: 'https://github.com/openscilab/nava/releases/tag/v0.1',
