@@ -24,7 +24,7 @@ const Section0 = () => {
 				<h1>OpenSciLab intro</h1>
 
 				<p>
-					OpenSciLab is a team of passionate open-source developers committed to providing efficient scientific
+					OpenSciLab is a team of independent open-source developers committed to providing efficient scientific
 					solutions for real-world challenges. Our mission is to make reliable open-source tools accessible to everyone
 					through open collaboration with the community. We believe that the power of open-source development lies in
 					the collective efforts of individuals committed to solving complex problems through shared knowledge and

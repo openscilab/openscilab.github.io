@@ -6,7 +6,8 @@ import { classNames } from '@src/Tools/Utils/React';
 import useDashboard from '@src/Tools/Hooks/useDashboard';
 import img2 from '../../../../../Assets/Images/scientific.svg';
 import img1 from '../../../../../Assets/Images/open_source.svg';
-import img3 from '../../../../../Assets/Images/none_profit.svg';
+import img3 from '../../../../../Assets/Images/non-profit.svg';
+import img4 from '../../../../../Assets/Images/independent.svg';
 import { Swiper, useSwiper, SwiperSlide } from '@components/Swiper';
 import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
 
@@ -75,5 +76,10 @@ const data = [
 		img: img3,
 		title: 'Non-profit',
 		description: `Not and never working for financial profit.`,
+	},
+	{
+		img: img4,
+		title: 'Independent',
+		description: `Founded and operated by independent open-source developers, without permanent support from any external entity.`,
 	},
 ];
