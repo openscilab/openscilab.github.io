@@ -1,6 +1,7 @@
 import Img2 from '../Assets/Images/team/Sadra Sabouri.webp';
 import Img1 from '../Assets/Images/team/Sepand Haghighi.webp';
 import Img4 from '../Assets/Images/team/Alireza Zolanvari.webp';
+import Img5 from '../Assets/Images/team/Amir Boreshnavard.webp';
 import Img3 from '../Assets/Images/team/AmirHosein Rostami.webp';
 
 export const members = [
@@ -36,5 +37,13 @@ export const members = [
 		github_url: 'https://github.com/alirezazolanvari',
 		linkedin_url: 'https://www.linkedin.com/in/alireza-zolanvari',
 		img: Img4,
+	},
+	{
+		job: 'Designer',
+		name: 'Amir Boreshnavard',
+		description: 'Graphic Design Artist at Guilan University',
+		github_url: 'https://github.com/boreshnavard',
+		linkedin_url: 'https://www.linkedin.com/in/amir-boreshnavard-71bb92286',
+		img: Img5,
 	},
 ];

@@ -17,7 +17,7 @@ const Section2 = () => {
 	const [swiper, setSwiper] = useState<any>();
 	const { swiper: globalSwiper } = useDashboard();
 	const [mounted, setMounted] = useMountedState(false);
-	const numberOfSlides = size.width > 1250 ? 4 : size.width < 650 ? 1 : !isDesktop ? 2 : 3;
+	const numberOfSlides = size.width > 1750 ? 5 : size.width > 1250 ? 4 : size.width < 650 ? 1 : !isDesktop ? 2 : 3;
 
 	useEffect(() => {
 		if (globalSwiper?.activeIndex === 2) setMounted(true);
@@ -31,7 +31,7 @@ const Section2 = () => {
 					last: swiper?.activeIndex === members?.length - numberOfSlides,
 					first: swiper?.activeIndex === 0,
 				})}>
-				<If condition={size?.width < 1500}>
+				<If condition={size?.width < 1750}>
 					<FaIcon fa='d-angle-left' onClick={() => swiper?.slidePrev()} />
 				</If>
 
@@ -53,7 +53,7 @@ const Section2 = () => {
 						</SwiperSlide>
 					))}
 				</Swiper>
-				<If condition={size?.width < 1500}>
+				<If condition={size?.width < 1750}>
 					<FaIcon fa='d-angle-right' onClick={() => swiper?.slideNext()} />
 				</If>
 			</div>

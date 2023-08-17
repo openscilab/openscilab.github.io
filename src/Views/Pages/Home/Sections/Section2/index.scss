@@ -1,11 +1,11 @@
 .home-section-layout-2 {
 	@apply w-full h-full m-auto flex-center;
-	max-width: 1500px;
+	// max-width: 1500px;
 
 	.team-slider-container {
 		@apply m-auto flex-center relative;
 		width: 85%;
-		height: 52vh;
+		height: 55vh;
 
 		.d-angle-right,
 		.d-angle-left {
@@ -90,12 +90,15 @@
 				&:nth-of-type(2) {
 					@apply as as-fadeInTopLeft as-fast;
 				}
-
 				&:nth-of-type(3) {
-					@apply as as-fadeInTopRight as-fast;
+					@apply as as-fadeInUp as-fast;
 				}
 
 				&:nth-of-type(4) {
+					@apply as as-fadeInTopRight as-fast;
+				}
+
+				&:nth-of-type(5) {
 					@apply as as-fadeInBottomRight as-fast;
 				}
 			}
