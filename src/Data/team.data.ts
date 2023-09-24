@@ -25,7 +25,7 @@ export const members = [
 	{
 		job: 'Core Developer',
 		name: 'Sadra Sabouri',
-		description: 'BSc. Electrical Engineering and Computer Science at Sharif University of Technology',
+		description: 'PhD Computer Science at University of Southern California',
 		github_url: 'https://github.com/sadrasabouri',
 		linkedin_url: 'https://www.linkedin.com/in/sadrasabouri/',
 		img: Img2,
