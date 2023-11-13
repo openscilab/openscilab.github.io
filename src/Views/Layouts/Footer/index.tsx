@@ -23,6 +23,18 @@ const Footer: FC = () => {
 						<FaIcon fa='b-discord' />
 					</div>
 				</a>
+
+				<a href='https://medium.com/@social_62465' target='_blank' rel='noreferrer'>
+					<div className='footer-icons-wrapper'>
+						<FaIcon fa='b-medium' />
+					</div>
+				</a>
+
+				<a href='https://twitter.com/openscilabx' target='_blank' rel='noreferrer'>
+					<div className='footer-icons-wrapper'>
+						<FaIcon fa='b-twitter' />
+					</div>
+				</a>
 			</div>
 		</div>
 	);
