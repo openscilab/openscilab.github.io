@@ -10,10 +10,12 @@ import { ReactComponent as Star } from '@assets/icons/star.svg';
 import { ReactComponent as Link } from '@assets/icons/link.svg';
 import { Swiper, SwiperSlide, useSwiper } from '@components/Swiper';
 import { ReactComponent as Development } from '@assets/icons/development.svg';
-import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
 import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
+
 import { ReactComponent as PYCMHorizontal } from '@assets/Images/projects/pycm/horizontal.svg';
 import { ReactComponent as PYMILOHorizontal } from '@assets/Images/projects/pymilo/horizontal.svg';
+import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
+import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
@@ -211,4 +213,17 @@ const projects = [
 		lastRelease: 'https://github.com/openscilab/nava/releases/tag/v0.2',
 		description: `Nava is a Python library that allows users to play sound in Python without any dependencies or platform restrictions. It is a cross-platform solution that runs on any operating system, including Windows, macOS, and Linux. Its lightweight and easy-to-use design makes Nava an ideal choice for developers looking to add sound functionality to their Python programs.`,
 	},
+	{
+		title: 'PyRGG',
+		repoName: 'pyrgg',
+		logo: PyRGG,
+		account: 'sepandhaghighi',
+		github: 'https://github.com/sepandhaghighi/pyrgg',
+		webLink: 'https://www.pyrgg.ir',
+		forkPage: 'https://github.com/sepandhaghighi/pyrgg/forks',
+		starsPage: 'https://github.com/sepandhaghighi/pyrgg/forks',
+		lastRelease: 'https://github.com/sepandhaghighi/pyrgg/releases/tag/v1.4',
+		description: `PyRGG is a user-friendly synthetic random graph generator that is written in Python and supports multiple graph file formats, such as DIMACS-Graph files. It can generate graphs of various sizes and is specifically designed to create input files for a wide range of graph-based research applications, including testing, benchmarking, and performance analysis of graph processing frameworks. PyRGG is aimed at computer scientists who are studying graph algorithms and graph processing frameworks.`,
+	},
+
 ];

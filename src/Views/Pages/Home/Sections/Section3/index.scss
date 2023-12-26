@@ -217,6 +217,14 @@
 											}
 										}
 									}
+
+									&.pyrgg {
+										g:nth-of-type(1) {
+											path {
+												fill: white !important;
+											}
+										}
+									}
 								}
 							}
 						}
@@ -292,7 +300,7 @@
 
 					.project-info {
 						p {
-							color: #202020 !important;
+							color: #020202 !important;
 
 							&::before {
 								background-image: linear-gradient(to bottom, transparent, $light);
@@ -397,6 +405,14 @@
 
 			&:not(.pycm) {
 				g:nth-of-type(4) {
+					path {
+						fill: white !important;
+					}
+				}
+			}
+			
+			&.pyrgg {
+				g:nth-of-type(1) {
 					path {
 						fill: white !important;
 					}
