@@ -1,2 +1,0 @@
-(this["webpackJsonposl-landing-frontend"]=this["webpackJsonposl-landing-frontend"]||[]).push([[6],{695:function(n,s,t){"use strict";t.r(s),s.default=t.p+"static/media/duotone.fa.b6eb66e1.svg"}}]);
-//# sourceMappingURL=6.b0b933d9.chunk.js.map
