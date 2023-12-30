@@ -14,7 +14,7 @@ import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
 const Section4 = () => {
 	const { swiper } = useDashboard();
 	const [mounted, setMounted] = useMountedState(false);
-	const { Post, loading } = useFetch('https://back.autohq.tech/projects/osl/contact-us');
+	const { Post, loading } = useFetch('https://back.auto-hq.com/projects/osl/contact-us');
 	const options = ['Providing feedback', 'Interested to Collaborate', 'Others']?.map(o => ({ value: o, label: o }));
 
 	// ? ------------------------- Hooks ----------------------------
@@ -46,7 +46,7 @@ const Section4 = () => {
 			await Post({
 				base: false,
 				body: getInputsData(),
-				url: 'https://back.autohq.tech/projects/osl/contact-us',
+				url: 'https://back.auto-hq.com/projects/osl/contact-us',
 			});
 
 			Notify.success('successful!');
