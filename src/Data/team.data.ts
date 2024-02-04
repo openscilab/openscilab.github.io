@@ -17,7 +17,7 @@ export const members = [
 	{
 		job: 'Core Developer',
 		name: 'AmirHosein Rostami',
-		description: 'Graduated in Electrical and Computer Engineering at Sharif University of Technology',
+		description: 'An Open Source Enthusiast',
 		github_url: 'https://github.com/ahreccese',
 		linkedin_url: 'https://www.linkedin.com/in/amirhosein-rostami-099b09158/',
 		img: Img3,
