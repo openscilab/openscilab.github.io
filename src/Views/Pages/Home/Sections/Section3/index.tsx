@@ -219,7 +219,7 @@ const projects = [
 		logo: PyRGG,
 		account: 'sepandhaghighi',
 		github: 'https://github.com/sepandhaghighi/pyrgg',
-		webLink: 'https://www.pyrgg.ir',
+		webLink: 'https://www.pyrgg.site',
 		forkPage: 'https://github.com/sepandhaghighi/pyrgg/forks',
 		starsPage: 'https://github.com/sepandhaghighi/pyrgg/forks',
 		lastRelease: 'https://github.com/sepandhaghighi/pyrgg/releases/tag/v1.4',
