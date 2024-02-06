@@ -41,7 +41,7 @@ export const members = [
 	{
 		job: 'Designer',
 		name: 'Amir Boreshnavard',
-		description: 'Graphic Design Artist at Guilan University',
+		description: 'Graphic Designer',
 		github_url: 'https://github.com/boreshnavard',
 		linkedin_url: 'https://www.linkedin.com/in/amir-boreshnavard-71bb92286',
 		img: Img5,
