@@ -225,6 +225,14 @@
 											}
 										}
 									}
+
+									&.samila {
+										g:nth-of-type(1) {
+											path {
+												fill: black !important;
+											}
+										}
+									}
 								}
 							}
 						}
@@ -415,6 +423,14 @@
 				g:nth-of-type(1) {
 					path {
 						fill: white !important;
+					}
+				}
+			}
+		
+			&.samila {
+				g:nth-of-type(1) {
+					path {
+						fill: black !important;
 					}
 				}
 			}

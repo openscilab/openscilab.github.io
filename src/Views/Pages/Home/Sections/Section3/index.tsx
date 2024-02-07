@@ -16,6 +16,7 @@ import { ReactComponent as PYCMHorizontal } from '@assets/Images/projects/pycm/h
 import { ReactComponent as PYMILOHorizontal } from '@assets/Images/projects/pymilo/horizontal.svg';
 import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
 import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg';
+import { ReactComponent as Samila } from '@assets/Images/projects/samila/samila.svg';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
@@ -225,5 +226,16 @@ const projects = [
 		lastRelease: 'https://github.com/sepandhaghighi/pyrgg/releases/tag/v1.4',
 		description: `PyRGG is a user-friendly synthetic random graph generator that is written in Python and supports multiple graph file formats, such as DIMACS-Graph files. It can generate graphs of various sizes and is specifically designed to create input files for a wide range of graph-based research applications, including testing, benchmarking, and performance analysis of graph processing frameworks. PyRGG is aimed at computer scientists who are studying graph algorithms and graph processing frameworks.`,
 	},
-
+	{
+		title: 'Samila',
+		repoName: 'samila',
+		logo: Samila,
+		account: 'sepandhaghighi',
+		github: 'https://github.com/sepandhaghighi/samila',
+		webLink: 'https://www.samila.site',
+		forkPage: 'https://github.com/sepandhaghighi/samila/forks',
+		starsPage: 'https://github.com/sepandhaghighi/samila/forks',
+		lastRelease: 'https://github.com/sepandhaghighi/samila/releases/tag/v1.1',
+		description: `Samila is a generative art generator written in Python, Samila lets you create images based on many thousand points. The position of every single point is calculated by a formula, which has random parameters. Because of the random numbers, every image looks different.`,
+	},
 ];
