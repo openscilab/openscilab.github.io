@@ -17,6 +17,7 @@ import { ReactComponent as PYMILOHorizontal } from '@assets/Images/projects/pymi
 import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
 import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg';
 import { ReactComponent as Samila } from '@assets/Images/projects/samila/samila.svg';
+import { ReactComponent as Art } from '@assets/Images/projects/art/art.svg';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
@@ -237,5 +238,17 @@ const projects = [
 		starsPage: 'https://github.com/sepandhaghighi/samila/forks',
 		lastRelease: 'https://github.com/sepandhaghighi/samila/releases/tag/v1.1',
 		description: `Samila is a generative art generator written in Python, Samila lets you create images based on many thousand points. The position of every single point is calculated by a formula, which has random parameters. Because of the random numbers, every image looks different.`,
+	},
+	{
+		title: 'Art',
+		repoName: 'art',
+		logo: Art,
+		account: 'sepandhaghighi',
+		github: 'https://github.com/sepandhaghighi/art',
+		webLink: 'https://www.ascii-art.site',
+		forkPage: 'https://github.com/sepandhaghighi/art/forks',
+		starsPage: 'https://github.com/sepandhaghighi/art/forks',
+		lastRelease: 'https://github.com/sepandhaghighi/art/releases/tag/v6.1',
+		description: `ASCII art is also known as "computer text art". It involves the smart placement of typed special characters or letters to make a visual shape that is spread over multiple lines of text. ART is a Python lib for text converting to ASCII art fancy.`,
 	},
 ];

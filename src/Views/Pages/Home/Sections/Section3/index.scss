@@ -233,6 +233,14 @@
 											}
 										}
 									}
+
+									&.art {
+										g:nth-of-type(1) {
+											path {
+												fill: black !important;
+											}
+										}
+									}
 								}
 							}
 						}
@@ -387,6 +395,14 @@
 			@apply h-20 my-14;
 		}
 
+		&.art {
+			@apply h-20 my-14;
+		}
+
+		&.samila {
+			@apply h-32 my-14;
+		}
+
 		&:not(.pycm) {
 			@apply transform scale-125;
 		}
@@ -434,6 +450,14 @@
 					}
 				}
 			}
+
+			&.art {
+				g:nth-of-type(1) {
+					path {
+						fill: white !important;
+					}
+				}
+			}
 		}
 	}
 
@@ -445,6 +469,15 @@
 				@apply text-primary;
 			}
 		}
+
+		&.art {
+			g:nth-of-type(1) {
+				path {
+					fill: black !important;
+				}
+			}
+		}
+
 	}
 
 	@include down(550px) {
