@@ -18,6 +18,7 @@ import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
 import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg';
 import { ReactComponent as Samila } from '@assets/Images/projects/samila/samila.svg';
 import { ReactComponent as Art } from '@assets/Images/projects/art/art.svg';
+import { ReactComponent as reserver } from '@assets/Images/projects/reserver/reserver.svg';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
@@ -250,5 +251,17 @@ const projects = [
 		starsPage: 'https://github.com/sepandhaghighi/art/forks',
 		lastRelease: 'https://github.com/sepandhaghighi/art/releases/tag/v6.1',
 		description: `ASCII art is also known as "computer text art". It involves the smart placement of typed special characters or letters to make a visual shape that is spread over multiple lines of text. ART is a Python lib for text converting to ASCII art fancy.`,
+	},
+	{
+		title: 'Reserver',
+		repoName: 'reserver',
+		logo: reserver,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/reserver',
+		webLink: 'https://github.com/openscilab/reserver',
+		forkPage: 'https://github.com/openscilab/reserver/fork',
+		starsPage: 'https://github.com/openscilab/reserver/stargazers',
+		lastRelease: 'https://github.com/openscilab/reserver/releases/tag/v0.1',
+		description: `Reserver is an open source Python package that provides functionality to easily reserve a pypi package name. Have an idea? Reserve the package name instantly before it gets taken!`,
 	},
 ];

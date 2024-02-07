@@ -241,6 +241,14 @@
 											}
 										}
 									}
+
+									&.reserver {
+										g:nth-of-type(1) {
+											path {
+												fill: white !important;
+											}
+										}
+									}
 								}
 							}
 						}
@@ -403,6 +411,10 @@
 			@apply h-32 my-14;
 		}
 
+		// &.reserver {
+		// 	@apply h-32 my-14;
+		// }
+
 		&:not(.pycm) {
 			@apply transform scale-125;
 		}
@@ -452,6 +464,14 @@
 			}
 
 			&.art {
+				g:nth-of-type(1) {
+					path {
+						fill: white !important;
+					}
+				}
+			}
+
+			&.reserver {
 				g:nth-of-type(1) {
 					path {
 						fill: white !important;
