@@ -411,9 +411,9 @@
 			@apply h-32 my-14;
 		}
 
-		// &.reserver {
-		// 	@apply h-32 my-14;
-		// }
+		&.reserver {
+			@apply h-32 my-8;
+		}
 
 		&:not(.pycm) {
 			@apply transform scale-125;
