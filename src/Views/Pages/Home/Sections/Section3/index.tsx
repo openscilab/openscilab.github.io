@@ -1,5 +1,5 @@
 import './index.scss';
-import { Modal } from 'rsuite';
+import { Col, Grid, Modal, Row } from 'rsuite';
 import FaIcon from '@components/FaIcon';
 import Btn from '@src/Components/BTN/BTN';
 import { useEffect, useState } from 'react';
@@ -19,11 +19,12 @@ import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg
 import { ReactComponent as Samila } from '@assets/Images/projects/samila/samila.svg';
 import { ReactComponent as Art } from '@assets/Images/projects/art/art.svg';
 import { ReactComponent as reserver } from '@assets/Images/projects/reserver/reserver.svg';
+import { If } from 'tsx-statements';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
 const Section3 = () => {
-	const { isMobile } = useWindow();
+	const { isMobile, isDesktop, size } = useWindow();
 	const { registerSwiper } = useSwiper();
 	const [swiper, setSwiper] = useState<any>();
 	const { swiper: globalSwiper } = useDashboard();
@@ -32,6 +33,9 @@ const Section3 = () => {
 	const [mounted, setMounted] = useMountedState(false);
 	const [selectedPro, setSelectedPro] = useState<any>({});
 	const ModalLogo = selectedPro?.logo || '';
+
+	// ? ----------------------- Vars --------------------------
+	const numberOfProjectsCol = size.width > 1200 ? 4 : 3;
 
 	// ? -------------------- useEffects 👇 -------------------- //
 
@@ -58,6 +62,17 @@ const Section3 = () => {
 		setRepos(s => ({ ...s, [repoName]: { forks: forks_count, stars: stargazers_count } }));
 	};
 
+	const splitToChunks = (arr: any[], n: number) => {
+		const numberOfChunks = Math.ceil(arr.length / n);
+		let final_chunks = [];
+		for (let i = 0; i < numberOfChunks; i++) {
+			const chunk = arr.slice(i * n, n * (i + 1));
+			final_chunks.push(chunk);
+		}
+
+		return final_chunks;
+	};
+
 	const social = (gitLink: string, webLink?: string) => (
 		<div className='social'>
 			<a href={gitLink} target='_blank' rel='noreferrer'>
@@ -71,11 +86,59 @@ const Section3 = () => {
 		</div>
 	);
 
+	const ProjectCard = (project: any, Logo: any) => (
+		<div className='project-img-info'>
+			{/* <a href={project?.webLink} target='_blank' rel='noreferrer'> */}
+			<div
+				className='first-row row'
+				onClick={() => {
+					setOpneModal(true);
+					setSelectedPro(project);
+				}}>
+				<Logo className={`project-logo ${project?.title?.toLowerCase()}`} />
+			</div>
+			{/* </a> */}
+
+			<div className='second-row row'>
+				<div className='first-cell cell'>
+					<div className='forks-wrapper'>
+						<a href={project?.forkPage} target='_blank' rel='noreferrer'>
+							<div className='link'>
+								<Development className='icon' />
+								<span>{repos?.[project?.repoName]?.forks || '-'} Forks</span>
+							</div>
+						</a>
+					</div>
+
+					<div className='stars-wrapper'>
+						<a href={project?.starsPage} target='_blank' rel='noreferrer'>
+							<div className='link'>
+								<Star className='icon' />
+								<span>{repos?.[project?.repoName]?.stars || '-'} Stars</span>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div className='second-cell cell'>
+					<a href={project?.lastRelease} target='_blank' rel='noreferrer'>
+						<div className='link' title='Go to last release'>
+							<Link className='icon' />
+							<span>Latest Release</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	);
+
 	return (
 		<div className={classNames('home-section-layout-3', { mounted: mounted })}>
 			<div
 				className={classNames('section3-slider-container', {
-					last: swiper?.activeIndex === projects?.length - 1,
+					last:
+						swiper?.activeIndex ===
+						(isDesktop ? splitToChunks(projects, numberOfProjectsCol * 2).length - 1 : projects?.length - 1),
 					first: swiper?.activeIndex === 0,
 				})}>
 				<FaIcon fa='d-angle-left' onClick={() => swiper?.slidePrev()} />
@@ -90,81 +153,68 @@ const Section3 = () => {
 					className='section3-slider'
 					pagination={{ clickable: true }}
 					allowTouchMove={isMobile ? true : false}>
-					{projects?.map((el, i) => {
-						const Logo = el?.logo || {};
-
-						return (
-							<SwiperSlide key={i}>
-								<div className='slide-content'>
-									<div className={classNames('project-info')}>
-										<h2>{el?.title}</h2>
-										<p>{el?.description}</p>
-
-										<div className='read-more-btn-wrapper'>
-											<Btn
-												fa='d-angle-down'
-												children='Read More'
-												className='read-more-btn'
-												onClick={() => {
-													setOpneModal(true);
-													setSelectedPro(el);
-												}}
-											/>
-										</div>
-
-										{social(el?.github, el?.webLink)}
+					{isDesktop && (
+						<div>
+							{splitToChunks(projects, numberOfProjectsCol * 2)?.map((chunk, i) => (
+								<SwiperSlide key={i}>
+									<div className='slide-content'>
+										<Row className='px-5'>
+											{chunk.map((project, j) => {
+												const Logo = project?.logo || {};
+												return (
+													<Col md={8} lg={6} key={j} className='project-col'>
+														{ProjectCard(project, Logo)}
+													</Col>
+												);
+											})}
+										</Row>
 									</div>
+								</SwiperSlide>
+							))}
+						</div>
+					)}
+					{!isDesktop && (
+						<div>
+							{projects?.map((project, i) => {
+								const Logo = project?.logo || {};
 
-									<div className='project-img-info'>
-										<a href={el?.webLink} target='_blank' rel='noreferrer'>
-											<div className='first-row row'>
-												<Logo className={`project-logo ${el?.title?.toLowerCase()}`} />
-											</div>
-										</a>
+								return (
+									<SwiperSlide key={i}>
+										<div className='slide-content'>
+											<div className={classNames('project-info')}>
+												<h2>{project?.title}</h2>
+												<p>{project?.description}</p>
 
-										<div className='second-row row'>
-											<div className='first-cell cell'>
-												<div className='forks-wrapper'>
-													<a href={el?.forkPage} target='_blank' rel='noreferrer'>
-														<div className='link'>
-															<Development className='icon' />
-															<span>{repos?.[el?.repoName]?.forks || '-'} Forks</span>
-														</div>
-													</a>
+												<div className='read-more-btn-wrapper'>
+													<Btn
+														fa='d-angle-down'
+														children='Read More'
+														className='read-more-btn'
+														onClick={() => {
+															setOpneModal(true);
+															setSelectedPro(project);
+														}}
+													/>
 												</div>
 
-												<div className='stars-wrapper'>
-													<a href={el?.starsPage} target='_blank' rel='noreferrer'>
-														<div className='link'>
-															<Star className='icon' />
-															<span>{repos?.[el?.repoName]?.stars || '-'} Stars</span>
-														</div>
-													</a>
-												</div>
+												{social(project?.github, project?.webLink)}
 											</div>
 
-											<div className='second-cell cell'>
-												<a href={el?.lastRelease} target='_blank' rel='noreferrer'>
-													<div className='link' title='Go to last release'>
-														<Link className='icon' />
-														<span>Latest Release</span>
-													</div>
-												</a>
-											</div>
+											{ProjectCard(project, Logo)}
 										</div>
-									</div>
-								</div>
-							</SwiperSlide>
-						);
-					})}
+									</SwiperSlide>
+								);
+							})}
+						</div>
+					)}
 				</Swiper>
 				<FaIcon fa='d-angle-right' onClick={() => swiper?.slideNext()} />
 			</div>
-
 			<Modal size='md' open={openModal} onClose={() => setOpneModal(false)} className='project-modal'>
 				<div>
 					<ModalLogo className={`modal-logo ${selectedPro?.title?.toLowerCase()}`} />
 					<div>
+						{isDesktop && <h2>{selectedPro?.title}</h2>}
 						<p>{selectedPro?.description}</p>
 					</div>
 					{social(selectedPro?.github, selectedPro?.webLink)}
