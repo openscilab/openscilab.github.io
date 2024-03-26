@@ -1,5 +1,5 @@
 import './index.scss';
-import { Col, Grid, Modal, Row } from 'rsuite';
+import { Col, Modal, Row } from 'rsuite';
 import FaIcon from '@components/FaIcon';
 import Btn from '@src/Components/BTN/BTN';
 import { useEffect, useState } from 'react';
@@ -19,7 +19,6 @@ import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg
 import { ReactComponent as Samila } from '@assets/Images/projects/samila/samila.svg';
 import { ReactComponent as Art } from '@assets/Images/projects/art/art.svg';
 import { ReactComponent as reserver } from '@assets/Images/projects/reserver/reserver.svg';
-import { If } from 'tsx-statements';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
