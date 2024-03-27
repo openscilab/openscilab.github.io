@@ -2,10 +2,10 @@ import './index.scss';
 import NavBar from './Navbar';
 import Footer from './Footer';
 import { FC, useEffect } from 'react';
-import usePersistedState from '@src/Tools/Hooks/usePersistedState';
+import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
 
 const Layouts: FC = ({ children }) => {
-	const [themeMode, setThemeMode] = usePersistedState('THEME_MODE', 'dark');
+	const { themeMode } = useLocalStorage();
 
 	useEffect(() => {
 		const classes = document?.body?.classList;
@@ -16,7 +16,7 @@ const Layouts: FC = ({ children }) => {
 
 	return (
 		<div className='root-layout'>
-			<NavBar {...{ themeMode, setThemeMode }} />
+			<NavBar />
 			<div className='root-children'>{children}</div>
 			<Footer />
 		</div>

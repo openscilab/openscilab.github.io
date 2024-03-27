@@ -6,19 +6,25 @@ import { useEffect, useState } from 'react';
 import useWindow from '@src/Tools/Hooks/useWindow';
 import { classNames } from '@src/Tools/Utils/React';
 import useDashboard from '@src/Tools/Hooks/useDashboard';
+import nava from '@assets/Images/projects/nava/nava.png';
+import artDark from '@assets/Images/projects/art/art-dark.png';
+import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
 import { ReactComponent as Star } from '@assets/icons/star.svg';
 import { ReactComponent as Link } from '@assets/icons/link.svg';
+import artLight from '@assets/Images/projects/art/art-light.png';
+import pycmDark from '@assets/Images/projects/pycm/pycm-dark.png';
 import { Swiper, SwiperSlide, useSwiper } from '@components/Swiper';
+import pycmLight from '@assets/Images/projects/pycm/pycm-light.png';
+import pyrggDark from '@assets/Images/projects/pyrgg/pyrgg-dark.png';
+import pyrggLight from '@assets/Images/projects/pyrgg/pyrgg-light.png';
+import samilaDark from '@assets/Images/projects/samila/samila-dark.png';
+import pymiloDark from '@assets/Images/projects/pymilo/pymilo-dark.png';
+import samilaLight from '@assets/Images/projects/samila/samila-light.png';
+import pymiloLight from '@assets/Images/projects/pymilo/pymilo-light.png';
 import { ReactComponent as Development } from '@assets/icons/development.svg';
+import reserverDark from '@assets/Images/projects/reserver/reserver-dark.png';
 import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
-
-import { ReactComponent as PYCMHorizontal } from '@assets/Images/projects/pycm/horizontal.svg';
-import { ReactComponent as PYMILOHorizontal } from '@assets/Images/projects/pymilo/horizontal.svg';
-import { ReactComponent as Nava } from '@assets/Images/projects/nava/nava.svg';
-import { ReactComponent as PyRGG } from '@assets/Images/projects/pyrgg/pyrgg.svg';
-import { ReactComponent as Samila } from '@assets/Images/projects/samila/samila.svg';
-import { ReactComponent as Art } from '@assets/Images/projects/art/art.svg';
-import { ReactComponent as reserver } from '@assets/Images/projects/reserver/reserver.svg';
+import reserverLight from '@assets/Images/projects/reserver/reserver-light.png';
 
 type ReposInfos = { [key: string]: { forks: number; stars: number } };
 
@@ -26,16 +32,15 @@ const Section3 = () => {
 	const { isMobile, isDesktop, size } = useWindow();
 	const { registerSwiper } = useSwiper();
 	const [swiper, setSwiper] = useState<any>();
+	const { themeMode } = useLocalStorage();
 	const { swiper: globalSwiper } = useDashboard();
 	const [repos, setRepos] = useState<ReposInfos>();
-	const [openModal, setOpneModal] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
 	const [mounted, setMounted] = useMountedState(false);
 	const [selectedPro, setSelectedPro] = useState<any>({});
-	const ModalLogo = selectedPro?.logo || '';
 
 	// ? ----------------------- Vars --------------------------
 	const numberOfProjectsCol = size.width > 1200 ? 4 : 3;
-
 	// ? -------------------- useEffects 👇 -------------------- //
 
 	useEffect(() => {
@@ -85,18 +90,24 @@ const Section3 = () => {
 		</div>
 	);
 
-	const ProjectCard = (project: any, Logo: any) => (
+	const ProjectCard = (project: any) => (
 		<div className='project-img-info'>
-			{/* <a href={project?.webLink} target='_blank' rel='noreferrer'> */}
 			<div
 				className='first-row row'
-				onClick={() => {
-					setOpneModal(true);
-					setSelectedPro(project);
-				}}>
-				<Logo className={`project-logo ${project?.title?.toLowerCase()}`} />
+				onClick={
+					isDesktop
+						? () => {
+								setOpenModal(true);
+								setSelectedPro(project);
+						  }
+						: () => window.open(project?.webLink, '_blank')
+				}>
+				<img
+					className={`project-logo ${project?.title?.toLowerCase()}`}
+					src={themeMode === 'dark' ? project.dark_logo : project.light_logo}
+					alt='logo'
+				/>
 			</div>
-			{/* </a> */}
 
 			<div className='second-row row'>
 				<div className='first-cell cell'>
@@ -159,10 +170,9 @@ const Section3 = () => {
 									<div className='slide-content'>
 										<Row className='px-5'>
 											{chunk.map((project, j) => {
-												const Logo = project?.logo || {};
 												return (
 													<Col md={8} lg={6} key={j} className='project-col'>
-														{ProjectCard(project, Logo)}
+														{ProjectCard(project)}
 													</Col>
 												);
 											})}
@@ -175,8 +185,6 @@ const Section3 = () => {
 					{!isDesktop && (
 						<div>
 							{projects?.map((project, i) => {
-								const Logo = project?.logo || {};
-
 								return (
 									<SwiperSlide key={i}>
 										<div className='slide-content'>
@@ -190,7 +198,7 @@ const Section3 = () => {
 														children='Read More'
 														className='read-more-btn'
 														onClick={() => {
-															setOpneModal(true);
+															setOpenModal(true);
 															setSelectedPro(project);
 														}}
 													/>
@@ -199,7 +207,7 @@ const Section3 = () => {
 												{social(project?.github, project?.webLink)}
 											</div>
 
-											{ProjectCard(project, Logo)}
+											{ProjectCard(project)}
 										</div>
 									</SwiperSlide>
 								);
@@ -209,9 +217,13 @@ const Section3 = () => {
 				</Swiper>
 				<FaIcon fa='d-angle-right' onClick={() => swiper?.slideNext()} />
 			</div>
-			<Modal size='md' open={openModal} onClose={() => setOpneModal(false)} className='project-modal'>
+			<Modal size='md' open={openModal} onClose={() => setOpenModal(false)} className='project-modal'>
 				<div>
-					<ModalLogo className={`modal-logo ${selectedPro?.title?.toLowerCase()}`} />
+					<img
+						className={`modal-logo ${selectedPro?.title?.toLowerCase()}`}
+						src={themeMode === 'dark' ? selectedPro.dark_logo : selectedPro.light_logo}
+						alt='logo'
+					/>
 					<div>
 						{isDesktop && <h2>{selectedPro?.title}</h2>}
 						<p>{selectedPro?.description}</p>
@@ -219,7 +231,7 @@ const Section3 = () => {
 					{social(selectedPro?.github, selectedPro?.webLink)}
 				</div>
 
-				<FaIcon fa='d-xmark' onClick={() => setOpneModal(false)} />
+				<FaIcon fa='d-xmark' onClick={() => setOpenModal(false)} />
 			</Modal>
 		</div>
 	);
@@ -231,7 +243,8 @@ const projects = [
 	{
 		title: 'PyCM',
 		repoName: 'pycm',
-		logo: PYCMHorizontal,
+		dark_logo: pycmDark,
+		light_logo: pycmLight,
 		account: 'sepandhaghighi',
 		webLink: 'https://www.pycm.io',
 		github: 'https://github.com/sepandhaghighi/pycm',
@@ -244,7 +257,8 @@ const projects = [
 	{
 		title: 'PyMilo',
 		repoName: 'PyMilo',
-		logo: PYMILOHorizontal,
+		dark_logo: pymiloDark,
+		light_logo: pymiloLight,
 		account: 'openscilab',
 		github: 'https://github.com/openscilab/pymilo',
 		// webLink: 'https://github.com/openscilab/pymilo',
@@ -254,7 +268,8 @@ const projects = [
 		description: `PyMilo is an open source Python package that provides a simple, efficient, and safe way for users to export pre-trained machine learning models in a transparent way. By this, the exported model can be used in other environments, transferred across different platforms, and shared with others. PyMilo allows the users to export the models that are trained using popular Python libraries like scikit-learn, and then use them in deployment environments, or share them  without exposing the underlying code or dependencies. The transparency of the exported models ensures reliability and safety for the end users, as it eliminates the risks of binary or pickle formats.`,
 	},
 	{
-		logo: Nava,
+		dark_logo: nava,
+		light_logo: nava,
 		title: 'Nava',
 		repoName: 'nava',
 		account: 'openscilab',
@@ -268,7 +283,8 @@ const projects = [
 	{
 		title: 'PyRGG',
 		repoName: 'pyrgg',
-		logo: PyRGG,
+		dark_logo: pyrggDark,
+		light_logo: pyrggLight,
 		account: 'sepandhaghighi',
 		github: 'https://github.com/sepandhaghighi/pyrgg',
 		webLink: 'https://www.pyrgg.site',
@@ -280,7 +296,8 @@ const projects = [
 	{
 		title: 'Samila',
 		repoName: 'samila',
-		logo: Samila,
+		dark_logo: samilaDark,
+		light_logo: samilaLight,
 		account: 'sepandhaghighi',
 		github: 'https://github.com/sepandhaghighi/samila',
 		webLink: 'https://www.samila.site',
@@ -292,7 +309,8 @@ const projects = [
 	{
 		title: 'Art',
 		repoName: 'art',
-		logo: Art,
+		dark_logo: artDark,
+		light_logo: artLight,
 		account: 'sepandhaghighi',
 		github: 'https://github.com/sepandhaghighi/art',
 		webLink: 'https://www.ascii-art.site',
@@ -304,7 +322,8 @@ const projects = [
 	{
 		title: 'Reserver',
 		repoName: 'reserver',
-		logo: reserver,
+		dark_logo: reserverDark,
+		light_logo: reserverLight,
 		account: 'openscilab',
 		github: 'https://github.com/openscilab/reserver',
 		webLink: 'https://github.com/openscilab/reserver',

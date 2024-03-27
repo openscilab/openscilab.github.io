@@ -1,15 +1,17 @@
 import { deepClone } from '../../Utils/Object';
 import { createReducer } from '@reduxjs/toolkit';
 import { removeBrowserCache } from '../../Utils/Cache';
-import { setInitLoad, setLocalData } from '../actions/LocalStorageActions';
+import { setInitLoad, setLocalData, setThemeMode } from '../actions/LocalStorageActions';
 import { clearLocalStorage, clearClassData, LocalActionEntryType } from '../actions/LocalStorageActions';
 
-const initState: InitStateType = {};
+const initState: InitStateType = { themeMode: 'dark' };
 
 const LocalStorageReducer = createReducer(initState, {
 	//
 
 	[clearLocalStorage.type]: () => initState,
+
+	[setThemeMode.type]: (state, { payload }) => ({ ...state, themeMode: payload }),
 
 	[setInitLoad.type]: (state, { payload }) => ({ ...(state || {}), is_init_load: payload }),
 
@@ -60,7 +62,7 @@ const dataUpdater = (cur_data: any[], partial_data: any[], deleted_ids: string[]
 	return data;
 };
 
-type InitStateType = EXTRA & CLASS_DATA_TYPE;
+type InitStateType = EXTRA & CLASS_DATA_TYPE & { themeMode: 'dark' | 'light' };
 
 type CLASS_DATA_TYPE = Partial<Record<CLASS_NAMES, any[]>>;
 

@@ -179,11 +179,17 @@
 						@apply flex items-center mt-4;
 
 						.fa-icon {
-							@apply w-6 h-6 mr-4 transition-all cursor-pointer text-tertiary;
+							@apply w-6 h-6 transition-all cursor-pointer text-tertiary;
 
 							&:hover {
 								scale: 1.2;
 								@apply text-primary;
+							}
+						}
+
+						a:not(:last-of-type) {
+							.fa-icon {
+								@apply mr-4;
 							}
 						}
 					}
@@ -220,56 +226,18 @@
 							@apply border-b border-primary bg-primary bg-opacity-5 hover:bg-opacity-10 cursor-pointer overflow-hidden transition-all duration-500;
 
 							.project-logo {
-								@apply w-1/2 h-full transition-all duration-700 transform;
+								@apply w-1/2 transition-all duration-700 transform;
 
-								@include theme_mode(dark) {
-									&.pycm {
-										g:nth-of-type(3) {
-											path {
-												fill: white !important;
-											}
-										}
+								&.pyrgg,
+								&.nava {
+									width: 45%;
+									@include down(sm) {
+										width: 40%;
 									}
+								}
 
-									&:not(.pycm) {
-										g:nth-of-type(4) {
-											path {
-												fill: white !important;
-											}
-										}
-									}
-
-									&.pyrgg {
-										g:nth-of-type(1) {
-											path {
-												fill: white !important;
-											}
-										}
-									}
-
-									&.samila {
-										g:nth-of-type(1) {
-											path {
-												fill: black !important;
-											}
-										}
-									}
-
-									&.art {
-										g:nth-of-type(1) {
-											path {
-												fill: black !important;
-											}
-										}
-									}
-
-									&.reserver {
-										g:nth-of-type(1) {
-											path {
-												fill: white !important;
-											}
-										}
-									}
+								&.reserver {
+									width: 47%;
 								}
 							}
 						}
@@ -401,7 +369,6 @@
 
 		h2 {
 			@apply text-3xl font-semibold mb-3 text-primary text-center;
-			// animation: JoinLetter 1s forwards;
 		}
 	}
 
@@ -413,17 +380,23 @@
 		@apply flex items-center justify-center mt-4;
 
 		.fa-icon {
-			@apply w-6 h-6 mr-4 transition-all cursor-pointer text-tertiary;
+			@apply w-6 h-6 transition-all cursor-pointer text-tertiary;
 
 			&:hover {
 				scale: 1.2;
 				@apply text-primary;
 			}
 		}
+
+		a:not(:last-of-type) {
+			.fa-icon {
+				@apply mr-4;
+			}
+		}
 	}
 
 	.modal-logo {
-		@apply w-full h-32 mb-10;
+		@apply h-32 mx-auto mb-10;
 
 		&.pycm {
 			@apply h-20 my-14;
@@ -434,11 +407,11 @@
 		}
 
 		&.samila {
-			@apply h-32 my-14;
+			@apply my-10;
 		}
 
 		&.reserver {
-			@apply h-32 my-8;
+			@apply h-32 mt-8;
 		}
 
 		&:not(.pycm) {
@@ -455,56 +428,6 @@
 		.rs-modal-content {
 			@apply bg-secondary text-light;
 		}
-
-		.modal-logo {
-			&.pycm {
-				g:nth-of-type(3) {
-					path {
-						fill: white !important;
-					}
-				}
-			}
-
-			&:not(.pycm) {
-				g:nth-of-type(4) {
-					path {
-						fill: white !important;
-					}
-				}
-			}
-
-			&.pyrgg {
-				g:nth-of-type(1) {
-					path {
-						fill: white !important;
-					}
-				}
-			}
-
-			&.samila {
-				g:nth-of-type(1) {
-					path {
-						fill: black !important;
-					}
-				}
-			}
-
-			&.art {
-				g:nth-of-type(1) {
-					path {
-						fill: white !important;
-					}
-				}
-			}
-
-			&.reserver {
-				g:nth-of-type(1) {
-					path {
-						fill: white !important;
-					}
-				}
-			}
-		}
 	}
 
 	@include theme_mode(light) {
@@ -515,28 +438,23 @@
 				@apply text-primary;
 			}
 		}
-
-		&.art {
-			g:nth-of-type(1) {
-				path {
-					fill: black !important;
-				}
-			}
-		}
 	}
 
 	@include down(550px) {
 		width: 100vw;
-		height: 100vh;
 		@apply p-0 m-0 border-0;
 
 		.rs-modal-content {
 			width: 100vw;
-			min-height: 100vh;
 			@apply overflow-hidden;
 
 			.modal-logo.pycm {
 				@apply my-8;
+			}
+
+			p {
+				line-height: 1.8rem;
+				@apply p-1;
 			}
 		}
 	}
