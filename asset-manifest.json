@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.2f803638.chunk.css",
-    "main.js": "/static/js/main.dcf7652e.chunk.js",
-    "main.js.map": "/static/js/main.dcf7652e.chunk.js.map",
+    "main.js": "/static/js/main.ab9a18f2.chunk.js",
+    "main.js.map": "/static/js/main.ab9a18f2.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ddbcb432.js",
     "runtime-main.js.map": "/static/js/runtime-main.ddbcb432.js.map",
     "static/js/2.3b358579.chunk.js": "/static/js/2.3b358579.chunk.js",
@@ -33,7 +33,7 @@
     "static/css/main.2f803638.chunk.css.map": "/static/css/main.2f803638.chunk.css.map",
     "static/js/2.3b358579.chunk.js.LICENSE.txt": "/static/js/2.3b358579.chunk.js.LICENSE.txt",
     "static/js/4.be8189cd.chunk.js.LICENSE.txt": "/static/js/4.be8189cd.chunk.js.LICENSE.txt",
-    "static/js/main.dcf7652e.chunk.js.LICENSE.txt": "/static/js/main.dcf7652e.chunk.js.LICENSE.txt",
+    "static/js/main.ab9a18f2.chunk.js.LICENSE.txt": "/static/js/main.ab9a18f2.chunk.js.LICENSE.txt",
     "static/media/Alireza Zolanvari.e04cf281.webp": "/static/media/Alireza Zolanvari.e04cf281.webp",
     "static/media/Amir Boreshnavard.2b6b072f.webp": "/static/media/Amir Boreshnavard.2b6b072f.webp",
     "static/media/AmirHosein Rostami.4ac468fe.webp": "/static/media/AmirHosein Rostami.4ac468fe.webp",
@@ -71,6 +71,6 @@
     "static/js/runtime-main.ddbcb432.js",
     "static/js/2.3b358579.chunk.js",
     "static/css/main.2f803638.chunk.css",
-    "static/js/main.dcf7652e.chunk.js"
+    "static/js/main.ab9a18f2.chunk.js"
   ]
 }
