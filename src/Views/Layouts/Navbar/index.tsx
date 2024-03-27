@@ -16,6 +16,7 @@ import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
 import useStore from '@src/Tools/Store/useStore';
 import { setThemeMode } from '@src/Tools/Store/actions/LocalStorageActions';
 
+
 // type NavBar_Props = { themeMode: any; setThemeMode: (mode: any) => void };
 
 const NavBar = () => {
