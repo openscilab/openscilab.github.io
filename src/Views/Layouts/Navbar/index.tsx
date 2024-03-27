@@ -5,20 +5,26 @@ import FaIcon from '@src/Components/FaIcon';
 import { Navbar, Nav, Drawer } from 'rsuite';
 import useWindow from '@tools/Hooks/useWindow';
 import useHash from '@src/Tools/Hooks/useHash';
-import { FC, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import NeonBtn from '@components/NeonBtn/NeonBtn';
 import useDashboard from '@tools/Hooks/useDashboard';
 import useIsFirst from '@src/Tools/Hooks/useIsFirst';
 import { Divide as Hamburger } from 'hamburger-react';
 import { classes, classNames } from '@tools/Utils/React';
 import OSL_TEXTED_logo from '../../../Assets/icons/logo-with-text.svg';
+import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
+import useStore from '@src/Tools/Store/useStore';
+import { setThemeMode } from '@src/Tools/Store/actions/LocalStorageActions';
 
-type NavBar_Props = { themeMode: any; setThemeMode: (mode: any) => void };
 
-const NavBar: FC<NavBar_Props> = ({ themeMode, setThemeMode }) => {
+// type NavBar_Props = { themeMode: any; setThemeMode: (mode: any) => void };
+
+const NavBar = () => {
 	const isFirst = useIsFirst();
+	const { dispatch } = useStore();
 	const { isMobile } = useWindow();
 	const { swiper } = useDashboard();
+	const { themeMode } = useLocalStorage();
 	const [isOpen, setOpen] = useState(false);
 	const { hasHash, addHash, removeHash } = useHash();
 	const [currentSection, setCurrentSection] = useState(0);
@@ -32,6 +38,9 @@ const NavBar: FC<NavBar_Props> = ({ themeMode, setThemeMode }) => {
 		setCurrentSection(index);
 	};
 
+	const changeThemeMode = (mode: 'dark' | 'light') => {
+		dispatch(setThemeMode(mode));
+	};
 	//? --------------- useEffect ------------------------------------------------------------------------------
 
 	useEffect(() => {
@@ -90,12 +99,12 @@ const NavBar: FC<NavBar_Props> = ({ themeMode, setThemeMode }) => {
 			<div className='toggle-theme-mode'>
 				<FaIcon
 					fa='d-brightness'
-					onClick={() => setThemeMode('light')}
+					onClick={() => changeThemeMode('light')}
 					className={classNames({ selected: themeMode === 'light' })}
 				/>
 				<FaIcon
 					fa='d-moon'
-					onClick={() => setThemeMode('dark')}
+					onClick={() => changeThemeMode('dark')}
 					className={classNames({ selected: themeMode === 'dark' })}
 				/>
 			</div>

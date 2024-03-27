@@ -8,6 +8,8 @@ export type LocalActionEntryType = {
 	partialUpdate: boolean;
 };
 
+export const setThemeMode = createAction<'dark' | 'light'>('setThemeMode');
+
 export const setInitLoad = createAction<boolean>('setInitLoad');
 
 export const clearLocalStorage = createAction('clearLocalStorage');

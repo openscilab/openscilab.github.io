@@ -11,7 +11,7 @@
 		// ".github": true,
 		"**/.svn": true,
 		"**/.DS_Store": true,
-		"**/Thumbs.db": true,
+		"**/Thumbs.db": true
 		// "tsconfig.json": true,
 		// "craco.config.js": true,
 		// "tsconfig.path.json": true,
@@ -47,6 +47,11 @@
 		"swiper",
 		"tailwindcss",
 		"xmark",
+		"pycm",
+		"pyrgg",
+		"pymilo",
+		"samila",
+		"nava",
 		"zipcode"
 	]
 }
