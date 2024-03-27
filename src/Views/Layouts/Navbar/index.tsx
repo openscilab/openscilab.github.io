@@ -11,7 +11,7 @@ import useDashboard from '@tools/Hooks/useDashboard';
 import useIsFirst from '@src/Tools/Hooks/useIsFirst';
 import { Divide as Hamburger } from 'hamburger-react';
 import { classes, classNames } from '@tools/Utils/React';
-import AHQ_TEXTED_logo from '../../../Assets/icons/logo-with-text.svg';
+import OSL_TEXTED_logo from '../../../Assets/icons/logo-with-text.svg';
 
 type NavBar_Props = { themeMode: any; setThemeMode: (mode: any) => void };
 
@@ -106,7 +106,7 @@ const NavBar: FC<NavBar_Props> = ({ themeMode, setThemeMode }) => {
 		<div {...classes('navbar-layout', { 'navbar-minimal': currentSection !== 0 })}>
 			<Navbar>
 				<Navbar.Brand onClick={goToSlide.bind(null, 0)}>
-					<img alt='osl-logo' src={AHQ_TEXTED_logo} />
+					<img alt='osl-logo' src={OSL_TEXTED_logo} />
 				</Navbar.Brand>
 
 				<If condition={!isMobile}>
