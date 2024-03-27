@@ -5,7 +5,7 @@ import FaIcon from '@src/Components/FaIcon';
 import { Navbar, Nav, Drawer } from 'rsuite';
 import useWindow from '@tools/Hooks/useWindow';
 import useHash from '@src/Tools/Hooks/useHash';
-import { FC, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import NeonBtn from '@components/NeonBtn/NeonBtn';
 import useDashboard from '@tools/Hooks/useDashboard';
 import useIsFirst from '@src/Tools/Hooks/useIsFirst';
