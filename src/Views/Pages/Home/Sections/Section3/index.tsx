@@ -62,7 +62,6 @@ const Section3 = () => {
 			headers: { Authorization: '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' },
 		});
 		const item = await res?.json();
-		console.log(item);
 
 		const { forks_count, stargazers_count } = item || {};
 		setRepos(s => ({ ...s, [repoName]: { forks: forks_count, stars: stargazers_count } }));
