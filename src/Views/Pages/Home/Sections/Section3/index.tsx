@@ -1,12 +1,13 @@
 import './index.scss';
-import { Col, Modal, Row } from 'rsuite';
 import FaIcon from '@components/FaIcon';
+import { Col, Modal, Row } from 'rsuite';
 import Btn from '@src/Components/BTN/BTN';
 import { useEffect, useState } from 'react';
 import useWindow from '@src/Tools/Hooks/useWindow';
-import { classNames } from '@src/Tools/Utils/React';
 import useDashboard from '@src/Tools/Hooks/useDashboard';
 import nava from '@assets/Images/projects/nava/nava.png';
+import dmeta from '@assets/Images/projects/dmeta/dmeta.png';
+import { classNames, classes } from '@src/Tools/Utils/React';
 import artDark from '@assets/Images/projects/art/art-dark.png';
 import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
 import { ReactComponent as Star } from '@assets/icons/star.svg';
@@ -61,6 +62,7 @@ const Section3 = () => {
 			headers: { Authorization: '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' },
 		});
 		const item = await res?.json();
+		console.log(item);
 
 		const { forks_count, stargazers_count } = item || {};
 		setRepos(s => ({ ...s, [repoName]: { forks: forks_count, stars: stargazers_count } }));
@@ -77,11 +79,13 @@ const Section3 = () => {
 		return final_chunks;
 	};
 
-	const social = (gitLink: string, webLink?: string) => (
+	const social = (gitLink?: string, webLink?: string) => (
 		<div className='social'>
-			<a href={gitLink} target='_blank' rel='noreferrer'>
-				<FaIcon fa='b-github' />
-			</a>
+			{gitLink && (
+				<a href={gitLink} target='_blank' rel='noreferrer'>
+					<FaIcon fa='b-github' />
+				</a>
+			)}
 			{webLink && (
 				<a href={webLink} target='_blank' rel='noreferrer'>
 					<FaIcon fa='s-globe' />
@@ -91,7 +95,7 @@ const Section3 = () => {
 	);
 
 	const ProjectCard = (project: any) => (
-		<div className='project-img-info'>
+		<div {...classes('project-img-info', { 'coming-soon': project?.coming_soon })}>
 			<div
 				className='first-row row'
 				onClick={
@@ -110,34 +114,48 @@ const Section3 = () => {
 			</div>
 
 			<div className='second-row row'>
-				<div className='first-cell cell'>
-					<div className='forks-wrapper'>
-						<a href={project?.forkPage} target='_blank' rel='noreferrer'>
+				{project?.coming_soon && (
+					<div>
+						<div className='second-cell cell'>
 							<div className='link'>
-								<Development className='icon' />
-								<span>{repos?.[project?.repoName]?.forks || '-'} Forks</span>
+								<FaIcon fa='l-hourglass-clock' className='text-primary w-7 mr-2' />
+								<span>Coming Soon</span>
 							</div>
-						</a>
-					</div>
-
-					<div className='stars-wrapper'>
-						<a href={project?.starsPage} target='_blank' rel='noreferrer'>
-							<div className='link'>
-								<Star className='icon' />
-								<span>{repos?.[project?.repoName]?.stars || '-'} Stars</span>
-							</div>
-						</a>
-					</div>
-				</div>
-
-				<div className='second-cell cell'>
-					<a href={project?.lastRelease} target='_blank' rel='noreferrer'>
-						<div className='link' title='Go to last release'>
-							<Link className='icon' />
-							<span>Latest Release</span>
 						</div>
-					</a>
-				</div>
+					</div>
+				)}
+				{!project?.coming_soon && (
+					<>
+						<div className='first-cell cell'>
+							<div className='forks-wrapper'>
+								<a href={project?.forkPage} target='_blank' rel='noreferrer'>
+									<div className='link'>
+										<Development className='icon' />
+										<span>{repos?.[project?.repoName]?.forks || '-'} Forks</span>
+									</div>
+								</a>
+							</div>
+
+							<div className='stars-wrapper'>
+								<a href={project?.starsPage} target='_blank' rel='noreferrer'>
+									<div className='link'>
+										<Star className='icon' />
+										<span>{repos?.[project?.repoName]?.stars || '-'} Stars</span>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<div className='second-cell cell'>
+							<a href={project?.lastRelease} target='_blank' rel='noreferrer'>
+								<div className='link' title='Go to last release'>
+									<Link className='icon' />
+									<span>Latest Release</span>
+								</div>
+							</a>
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	);
@@ -331,5 +349,11 @@ const projects = [
 		starsPage: 'https://github.com/openscilab/reserver/stargazers',
 		lastRelease: 'https://github.com/openscilab/reserver/releases/tag/v0.1',
 		description: `Reserver is an open source Python package that offers the ability to quickly reserve a PyPI package name. Got a notion? Before it's taken, immediately reserve the product name!`,
+	},
+	{
+		title: 'Dmeta',
+		dark_logo: dmeta,
+		light_logo: dmeta,
+		coming_soon: true,
 	},
 ];
