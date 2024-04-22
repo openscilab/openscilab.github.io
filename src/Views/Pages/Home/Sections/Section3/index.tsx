@@ -26,8 +26,9 @@ import { ReactComponent as Development } from '@assets/icons/development.svg';
 import reserverDark from '@assets/Images/projects/reserver/reserver-dark.png';
 import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
 import reserverLight from '@assets/Images/projects/reserver/reserver-light.png';
+import { CONFIG } from '@src/App/Config/constants';
 
-type ReposInfos = { [key: string]: { forks: number; stars: number } };
+type ReposInfos = { [key: string]: { forks: number; stars: number; release_link: string } };
 
 const Section3 = () => {
 	const { isMobile, isDesktop, size } = useWindow();
@@ -58,13 +59,14 @@ const Section3 = () => {
 	const getUserReposInfo = async (account?: string, repoName?: string) => {
 		if (!repoName) return;
 		const acc = account;
-		const res = await fetch(`https://api.github.com/repos/${acc}/${repoName}`, {
-			headers: { Authorization: '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' },
-		});
+		const res = await fetch(`${CONFIG.Github.api}/repos/${acc}/${repoName}`);
 		const item = await res?.json();
-
 		const { forks_count, stargazers_count } = item || {};
-		setRepos(s => ({ ...s, [repoName]: { forks: forks_count, stars: stargazers_count } }));
+
+		const release = await fetch(`${CONFIG.Github.api}/repos/${acc}/${repoName}/releases/latest`);
+		const { html_url } = await release?.json();
+
+		setRepos(s => ({ ...s, [repoName]: { forks: forks_count, stars: stargazers_count, release_link: html_url } }));
 	};
 
 	const splitToChunks = (arr: any[], n: number) => {
@@ -146,7 +148,7 @@ const Section3 = () => {
 						</div>
 
 						<div className='second-cell cell'>
-							<a href={project?.lastRelease} target='_blank' rel='noreferrer'>
+							<a href={repos?.[project?.repoName]?.release_link} target='_blank' rel='noreferrer'>
 								<div className='link' title='Go to last release'>
 									<Link className='icon' />
 									<span>Latest Release</span>
@@ -267,7 +269,6 @@ const projects = [
 		github: 'https://github.com/sepandhaghighi/pycm',
 		forkPage: 'https://github.com/sepandhaghighi/pycm/forks',
 		starsPage: 'https://github.com/sepandhaghighi/pycm/stargazers',
-		lastRelease: 'https://github.com/sepandhaghighi/pycm/releases/tag/v4.0',
 		description: `PyCM is a multi-class confusion matrix library written in Python that supports both input data vectors and direct matrix, and is a proper tool for post-classification model evaluation that supports most classes and overall statistics parameters. PyCM is the swiss-army knife of confusion matrices, targeted mainly at data scientists that need a broad array of metrics for predictive models and accurate evaluation of a large variety of classifiers.`,
 	},
 
@@ -281,7 +282,6 @@ const projects = [
 		// webLink: 'https://github.com/openscilab/pymilo',
 		forkPage: 'https://github.com/openscilab/pymilo/fork',
 		starsPage: 'https://github.com/openscilab/pymilo/stargazers',
-		lastRelease: 'https://github.com/openscilab/pymilo/releases/tag/v0.4',
 		description: `PyMilo is an open source Python package that provides a simple, efficient, and safe way for users to export pre-trained machine learning models in a transparent way. By this, the exported model can be used in other environments, transferred across different platforms, and shared with others. PyMilo allows the users to export the models that are trained using popular Python libraries like scikit-learn, and then use them in deployment environments, or share them  without exposing the underlying code or dependencies. The transparency of the exported models ensures reliability and safety for the end users, as it eliminates the risks of binary or pickle formats.`,
 	},
 	{
@@ -294,7 +294,6 @@ const projects = [
 		// webLink: 'https://github.com/openscilab/nava',
 		forkPage: 'https://github.com/openscilab/nava/forks',
 		starsPage: 'https://github.com/openscilab/nava/stargazers',
-		lastRelease: 'https://github.com/openscilab/nava/releases/tag/v0.2',
 		description: `Nava is a Python library that allows users to play sound in Python without any dependencies or platform restrictions. It is a cross-platform solution that runs on any operating system, including Windows, macOS, and Linux. Its lightweight and easy-to-use design makes Nava an ideal choice for developers looking to add sound functionality to their Python programs.`,
 	},
 	{
@@ -307,7 +306,6 @@ const projects = [
 		webLink: 'https://www.pyrgg.site',
 		forkPage: 'https://github.com/sepandhaghighi/pyrgg/forks',
 		starsPage: 'https://github.com/sepandhaghighi/pyrgg/forks',
-		lastRelease: 'https://github.com/sepandhaghighi/pyrgg/releases/tag/v1.4',
 		description: `PyRGG is a user-friendly synthetic random graph generator that is written in Python and supports multiple graph file formats, such as DIMACS-Graph files. It can generate graphs of various sizes and is specifically designed to create input files for a wide range of graph-based research applications, including testing, benchmarking, and performance analysis of graph processing frameworks. PyRGG is aimed at computer scientists who are studying graph algorithms and graph processing frameworks.`,
 	},
 	{
@@ -320,7 +318,6 @@ const projects = [
 		webLink: 'https://www.samila.site',
 		forkPage: 'https://github.com/sepandhaghighi/samila/forks',
 		starsPage: 'https://github.com/sepandhaghighi/samila/forks',
-		lastRelease: 'https://github.com/sepandhaghighi/samila/releases/tag/v1.1',
 		description: `Samila is a generative art generator written in Python, Samila lets you create images based on many thousand points. The position of every single point is calculated by a formula, which has random parameters. Because of the random numbers, every image looks different.`,
 	},
 	{
@@ -333,7 +330,6 @@ const projects = [
 		webLink: 'https://www.ascii-art.site',
 		forkPage: 'https://github.com/sepandhaghighi/art/forks',
 		starsPage: 'https://github.com/sepandhaghighi/art/forks',
-		lastRelease: 'https://github.com/sepandhaghighi/art/releases/tag/v6.1',
 		description: `ASCII art is also known as "computer text art". It involves the smart placement of typed special characters or letters to make a visual shape that is spread over multiple lines of text. ART is a Python lib for text converting to ASCII art fancy.`,
 	},
 	{
@@ -346,7 +342,6 @@ const projects = [
 		webLink: 'https://github.com/openscilab/reserver',
 		forkPage: 'https://github.com/openscilab/reserver/fork',
 		starsPage: 'https://github.com/openscilab/reserver/stargazers',
-		lastRelease: 'https://github.com/openscilab/reserver/releases/tag/v0.1',
 		description: `Reserver is an open source Python package that offers the ability to quickly reserve a PyPI package name. Got a notion? Before it's taken, immediately reserve the product name!`,
 	},
 	{
