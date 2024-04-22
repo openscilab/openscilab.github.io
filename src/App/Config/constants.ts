@@ -6,6 +6,10 @@ const BaseConfig = {
 	APP_NAME: '<APP_NAME>',
 	APP_SHORT_NAME: '<APP_SHORT_NAME>',
 
+	Github: {
+		api: 'https://api.github.com',
+	},
+
 	//* Parse
 	Parse: {
 		appId: '<appID>',
