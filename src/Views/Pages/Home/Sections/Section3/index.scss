@@ -200,6 +200,10 @@
 					// width: 50rem;
 					height: 16rem;
 
+					&.coming-soon {
+						background-color: rgb(3, 29, 48);
+					}
+
 					@include down(md) {
 						width: 55vw;
 					}
@@ -231,13 +235,33 @@
 								&.pyrgg,
 								&.nava {
 									width: 45%;
-									@include down(sm) {
-										width: 40%;
-									}
 								}
 
 								&.reserver {
 									width: 47%;
+								}
+
+								&.pyrgg,
+								&.nava,
+								&.samila,
+								&.reserver {
+									@include down(md) {
+										width: 30%;
+									}
+
+									@include down(700px) {
+										width: 40%;
+									}
+								}
+
+								&.dmeta {
+									width: 35%;
+									@include down(md) {
+										width: 20%;
+									}
+									@include down(sm) {
+										width: 25%;
+									}
 								}
 							}
 						}
@@ -308,6 +332,15 @@
 
 						.row.first-row {
 							@apply bg-secondary bg-opacity-5 hover:bg-opacity-10;
+						}
+
+						&.coming-soon {
+							.row.first-row {
+								background-color: rgba(96, 126, 145, 0.2);
+							}
+							.row.second-row {
+								background-color: rgba(50, 130, 184, 0.1);
+							}
 						}
 					}
 
