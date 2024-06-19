@@ -346,9 +346,17 @@ const projects = [
 		description: `Reserver is an open source Python package that offers the ability to quickly reserve a PyPI package name. Got a notion? Before it's taken, immediately reserve the product name!`,
 	},
 	{
-		title: 'Dmeta',
+		title: 'DMeta',
+		repoName: 'dmeta',
 		dark_logo: dmeta,
 		light_logo: dmeta,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/dmeta',
+		webLink: 'https://github.com/openscilab/dmeta',
+		forkPage: 'https://github.com/openscilab/dmeta/fork',
+		starsPage: 'https://github.com/openscilab/dmeta/stargazers',
+		description: `DMeta is an open source Python package that removes metadata of Microsoft Office files.`,
+	},
 	{
 		title: 'OPR',
 		dark_logo: opr,
