@@ -263,6 +263,16 @@
 										width: 25%;
 									}
 								}
+
+								&.opr {
+									width: 35%;
+									@include down(md) {
+										width: 20%;
+									}
+									@include down(sm) {
+										width: 25%;
+									}
+								}
 							}
 						}
 

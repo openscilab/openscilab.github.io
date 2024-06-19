@@ -7,6 +7,7 @@ import useWindow from '@src/Tools/Hooks/useWindow';
 import useDashboard from '@src/Tools/Hooks/useDashboard';
 import nava from '@assets/Images/projects/nava/nava.png';
 import dmeta from '@assets/Images/projects/dmeta/dmeta.png';
+import opr from '@assets/Images/projects/opr/opr.png';
 import { classNames, classes } from '@src/Tools/Utils/React';
 import artDark from '@assets/Images/projects/art/art-dark.png';
 import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
@@ -348,6 +349,10 @@ const projects = [
 		title: 'Dmeta',
 		dark_logo: dmeta,
 		light_logo: dmeta,
+	{
+		title: 'OPR',
+		dark_logo: opr,
+		light_logo: opr,
 		coming_soon: true,
 	},
 ];
