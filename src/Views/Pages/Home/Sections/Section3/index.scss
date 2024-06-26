@@ -227,7 +227,7 @@
 						@apply flex-center absolute left-0 right-0 top-0 bottom-0 pointer-events-none;
 
 						img {
-							@apply w-4 pointer-events-auto;
+							@apply w-4 pointer-events-auto z-50;
 							&:not(:last-of-type) {
 								@apply mr-2 sm:mr-3;
 							}

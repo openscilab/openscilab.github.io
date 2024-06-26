@@ -1,6 +1,6 @@
 import './index.scss';
 import FaIcon from '@components/FaIcon';
-import { Col, Modal, Row } from 'rsuite';
+import { Col, Modal, Row, Tooltip, Whisper } from 'rsuite';
 import Btn from '@src/Components/BTN/BTN';
 import { useEffect, useState } from 'react';
 import useWindow from '@src/Tools/Hooks/useWindow';
@@ -117,7 +117,14 @@ const Section3 = () => {
 			</div>
 			<div className='grant-row'>
 				{project?.grant?.map((grant: any, i: any) => (
-					<img src={prize} alt='grant-prize' title={grant} key={i} />
+					<Whisper
+						trigger='hover'
+						controlId='control-id-hover'
+						key={i}
+						placement='top'
+						speaker={<Tooltip>{grant}</Tooltip>}>
+						<img src={prize} alt='grant-prize' />
+					</Whisper>
 				))}
 			</div>
 
