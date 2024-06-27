@@ -65,7 +65,7 @@
 		}
 
 		.swiper-slide {
-			@apply w-full rounded-3xl;
+			@apply mt-8 sm:mt-0 w-full rounded-3xl;
 
 			.slide-content {
 				@apply w-full rounded-3xl flex items-center flex-col-reverse md:flex-row justify-between;
@@ -223,8 +223,19 @@
 						@apply img-shadow;
 					}
 
+					.grant-row {
+						@apply flex-center absolute left-0 right-0 top-0 bottom-0 pointer-events-none;
+
+						img {
+							@apply w-4 pointer-events-auto z-50;
+							&:not(:last-of-type) {
+								@apply mr-2 sm:mr-3;
+							}
+						}
+					}
+
 					.row {
-						@apply w-full h-1/2 flex-center text-lg;
+						@apply w-full h-1/2 flex-center text-lg relative;
 
 						&.first-row {
 							@apply border-b border-primary bg-primary bg-opacity-5 hover:bg-opacity-10 cursor-pointer overflow-hidden transition-all duration-500;
@@ -254,16 +265,7 @@
 									}
 								}
 
-								&.dmeta {
-									width: 35%;
-									@include down(md) {
-										width: 20%;
-									}
-									@include down(sm) {
-										width: 25%;
-									}
-								}
-
+								&.dmeta,
 								&.opr {
 									width: 35%;
 									@include down(md) {

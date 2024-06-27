@@ -1,9 +1,10 @@
 import './index.scss';
 import FaIcon from '@components/FaIcon';
-import { Col, Modal, Row } from 'rsuite';
+import { Col, Modal, Row, Tooltip, Whisper } from 'rsuite';
 import Btn from '@src/Components/BTN/BTN';
 import { useEffect, useState } from 'react';
 import useWindow from '@src/Tools/Hooks/useWindow';
+import prize from '@assets/Images/projects/prize.png';
 import useDashboard from '@src/Tools/Hooks/useDashboard';
 import nava from '@assets/Images/projects/nava/nava.png';
 import dmeta from '@assets/Images/projects/dmeta/dmeta.png';
@@ -114,15 +115,25 @@ const Section3 = () => {
 					alt='logo'
 				/>
 			</div>
+			<div className='grant-row'>
+				{project?.grant?.map((grant: any, i: any) => (
+					<Whisper
+						trigger='hover'
+						controlId='control-id-hover'
+						key={i}
+						placement='top'
+						speaker={<Tooltip>{grant}</Tooltip>}>
+						<img src={prize} alt='grant-prize' />
+					</Whisper>
+				))}
+			</div>
 
 			<div className='second-row row'>
 				{project?.coming_soon && (
-					<div>
-						<div className='second-cell cell'>
-							<div className='link'>
-								<FaIcon fa='l-hourglass-clock' className='text-primary w-7 mr-2' />
-								<span>Coming Soon</span>
-							</div>
+					<div className='second-cell cell'>
+						<div className='link'>
+							<FaIcon fa='l-hourglass-clock' className='text-primary w-7 mr-2' />
+							<span>Coming Soon</span>
 						</div>
 					</div>
 				)}
@@ -270,6 +281,7 @@ const projects = [
 		github: 'https://github.com/sepandhaghighi/pycm',
 		forkPage: 'https://github.com/sepandhaghighi/pycm/forks',
 		starsPage: 'https://github.com/sepandhaghighi/pycm/stargazers',
+		grant: ['PSF Development Grant 2022', 'NLnet Grant 2022', 'Trelis AI Grant 2024'],
 		description: `PyCM is a multi-class confusion matrix library written in Python that supports both input data vectors and direct matrix, and is a proper tool for post-classification model evaluation that supports most classes and overall statistics parameters. PyCM is the swiss-army knife of confusion matrices, targeted mainly at data scientists that need a broad array of metrics for predictive models and accurate evaluation of a large variety of classifiers.`,
 	},
 
@@ -279,6 +291,7 @@ const projects = [
 		dark_logo: pymiloDark,
 		light_logo: pymiloLight,
 		account: 'openscilab',
+		grant: ['PSF Development Grant 2024'],
 		github: 'https://github.com/openscilab/pymilo',
 		// webLink: 'https://github.com/openscilab/pymilo',
 		forkPage: 'https://github.com/openscilab/pymilo/fork',
@@ -315,6 +328,7 @@ const projects = [
 		dark_logo: samilaDark,
 		light_logo: samilaLight,
 		account: 'sepandhaghighi',
+		grant: ['IPFS Grant 2022'],
 		github: 'https://github.com/sepandhaghighi/samila',
 		webLink: 'https://www.samila.site',
 		forkPage: 'https://github.com/sepandhaghighi/samila/forks',
@@ -327,6 +341,7 @@ const projects = [
 		dark_logo: artDark,
 		light_logo: artLight,
 		account: 'sepandhaghighi',
+		grant: ['PSF Development Grant 2024'],
 		github: 'https://github.com/sepandhaghighi/art',
 		webLink: 'https://www.ascii-art.site',
 		forkPage: 'https://github.com/sepandhaghighi/art/forks',
