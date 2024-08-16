@@ -291,7 +291,7 @@ const projects = [
 		dark_logo: pymiloDark,
 		light_logo: pymiloLight,
 		account: 'openscilab',
-		grant: ['PSF Development Grant 2024'],
+		grant: ['PSF Development Grant 2024', 'Trelis AI Grant 2024'],
 		github: 'https://github.com/openscilab/pymilo',
 		// webLink: 'https://github.com/openscilab/pymilo',
 		forkPage: 'https://github.com/openscilab/pymilo/fork',
