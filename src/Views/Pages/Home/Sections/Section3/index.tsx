@@ -24,6 +24,8 @@ import samilaDark from '@assets/Images/projects/samila/samila-dark.png';
 import pymiloDark from '@assets/Images/projects/pymilo/pymilo-dark.png';
 import samilaLight from '@assets/Images/projects/samila/samila-light.png';
 import pymiloLight from '@assets/Images/projects/pymilo/pymilo-light.png';
+import mybuttonLight from '@assets/Images/projects/mybutton/mybutton-light.png';
+import mybuttonDark from '@assets/Images/projects/mybutton/mybutton-dark.png';
 import { ReactComponent as Development } from '@assets/icons/development.svg';
 import reserverDark from '@assets/Images/projects/reserver/reserver-dark.png';
 import useMountedState from '@src/Tools/Hooks/useMountedState/useMountedState';
@@ -371,6 +373,18 @@ const projects = [
 		forkPage: 'https://github.com/openscilab/dmeta/fork',
 		starsPage: 'https://github.com/openscilab/dmeta/stargazers',
 		description: `DMeta is an open source Python package that removes metadata of Microsoft Office files.`,
+	},
+	{
+		title: 'MyButton',
+		repoName: 'mybutton',
+		dark_logo: mybuttonDark,
+		light_logo: mybuttonLight,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/mybutton',
+		webLink: 'https://mybutton.click',
+		forkPage: 'https://github.com/openscilab/mybutton/fork',
+		starsPage: 'https://github.com/openscilab/mybutton/stargazers',
+		description: `MyButton is an open-source project that streamlines the process of sharing links to your preferred online services. It provides a user-friendly interface that allows users to seamlessly share content with just a few clicks. `,
 	},
 	{
 		title: 'OPR',
