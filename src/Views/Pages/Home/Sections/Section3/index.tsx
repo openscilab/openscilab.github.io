@@ -381,7 +381,7 @@ const projects = [
 		light_logo: mybuttonLight,
 		account: 'openscilab',
 		github: 'https://github.com/openscilab/mybutton',
-		webLink: 'https://github.com/openscilab/mybutton',
+		webLink: 'https://mybutton.click',
 		forkPage: 'https://github.com/openscilab/mybutton/fork',
 		starsPage: 'https://github.com/openscilab/mybutton/stargazers',
 		description: `MyButton is an open-source project that streamlines the process of sharing links to your preferred online services. It provides a user-friendly interface that allows users to seamlessly share content with just a few clicks. `,
