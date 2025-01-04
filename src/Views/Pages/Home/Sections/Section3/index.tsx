@@ -283,7 +283,7 @@ const projects = [
 		github: 'https://github.com/sepandhaghighi/pycm',
 		forkPage: 'https://github.com/sepandhaghighi/pycm/forks',
 		starsPage: 'https://github.com/sepandhaghighi/pycm/stargazers',
-		grant: ['PSF Development Grant 2022', 'NLnet Grant 2022', 'Trelis AI Grant 2024'],
+		grant: ['PSF Development Grant 2022', 'NLnet Grant 2022', 'Trelis AI Grant 2024', 'NLnet Grant 2024'],
 		description: `PyCM is a multi-class confusion matrix library written in Python that supports both input data vectors and direct matrix, and is a proper tool for post-classification model evaluation that supports most classes and overall statistics parameters. PyCM is the swiss-army knife of confusion matrices, targeted mainly at data scientists that need a broad array of metrics for predictive models and accurate evaluation of a large variety of classifiers.`,
 	},
 
