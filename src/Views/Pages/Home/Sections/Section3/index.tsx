@@ -9,6 +9,7 @@ import useDashboard from '@src/Tools/Hooks/useDashboard';
 import nava from '@assets/Images/projects/nava/nava.png';
 import dmeta from '@assets/Images/projects/dmeta/dmeta.png';
 import opr from '@assets/Images/projects/opr/opr.png';
+import memor from '@assets/Images/projects/memor/memor.png';
 import { classNames, classes } from '@src/Tools/Utils/React';
 import artDark from '@assets/Images/projects/art/art-dark.png';
 import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
@@ -399,5 +400,17 @@ const projects = [
 		forkPage: 'https://github.com/openscilab/opr/fork',
 		starsPage: 'https://github.com/openscilab/opr/stargazers',
 		description: `OPR is an open-source Python package designed to simplify and streamline primer design and analysis for biologists and bioinformaticians. OPR enables users to design, validate, and optimize primers with ease, catering to a wide range of applications such as PCR, qPCR, and sequencing. With a focus on user-friendliness and efficiency, OPR aims to bridge the gap between biological research and computational tools, making primer-related workflows faster and more reliable.`,
+	},
+	{
+		title: 'Memor',
+		repoName: 'memor',
+		dark_logo: memor,
+		light_logo: memor,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/memor',
+		webLink: 'https://github.com/openscilab/memor',
+		forkPage: 'https://github.com/openscilab/memor/fork',
+		starsPage: 'https://github.com/openscilab/memor/stargazers',
+		description: `Memor is a library designed to help users manage the memory of their interactions with Large Language Models (LLMs). It enables users to seamlessly access and utilize the history of their conversations when prompting LLMs. That would create a more personalized and context-aware experience. Memor stands out by allowing users to transfer conversational history across different LLMs, eliminating cold starts where models don't have information about user and their preferences. Users can select specific parts of past interactions with one LLM and share them with another. By bridging the gap between isolated LLM instances, Memor revolutionizes the way users interact with AI by making transitions between models smoother.`,
 	},
 ];
