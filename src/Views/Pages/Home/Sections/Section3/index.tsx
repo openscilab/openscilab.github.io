@@ -10,6 +10,8 @@ import nava from '@assets/Images/projects/nava/nava.png';
 import dmeta from '@assets/Images/projects/dmeta/dmeta.png';
 import opr from '@assets/Images/projects/opr/opr.png';
 import memor from '@assets/Images/projects/memor/memor.png';
+import xnum from '@assets/Images/projects/xnum/xnum.png';
+import ipspot from '@assets/Images/projects/ipspot/ipspot.png';
 import { classNames, classes } from '@src/Tools/Utils/React';
 import artDark from '@assets/Images/projects/art/art-dark.png';
 import useLocalStorage from '@src/Tools/Hooks/useLocalStorage';
@@ -412,5 +414,29 @@ const projects = [
 		forkPage: 'https://github.com/openscilab/memor/fork',
 		starsPage: 'https://github.com/openscilab/memor/stargazers',
 		description: `Memor is a library designed to help users manage the memory of their interactions with Large Language Models (LLMs). It enables users to seamlessly access and utilize the history of their conversations when prompting LLMs. That would create a more personalized and context-aware experience. Memor stands out by allowing users to transfer conversational history across different LLMs, eliminating cold starts where models don't have information about user and their preferences. Users can select specific parts of past interactions with one LLM and share them with another. By bridging the gap between isolated LLM instances, Memor revolutionizes the way users interact with AI by making transitions between models smoother.`,
+	},
+	{
+		title: 'XNum',
+		repoName: 'xnum',
+		dark_logo: xnum,
+		light_logo: xnum,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/xnum',
+		webLink: 'https://github.com/openscilab/xnum',
+		forkPage: 'https://github.com/openscilab/xnum/fork',
+		starsPage: 'https://github.com/openscilab/xnum/stargazers',
+		description: `XNum is a simple and lightweight Python library that helps you convert digits between different numeral systems — like English, Persian, Hindi, Arabic-Indic, Bengali, and more. It can automatically detect mixed numeral formats in a piece of text and convert only the numbers, leaving the rest untouched. Whether you're building multilingual apps or processing localized data, XNum makes it easy to handle numbers across different languages with a clean and easy-to-use API.`,
+	},
+	{
+		title: 'IPSpot',
+		repoName: 'ipspot',
+		dark_logo: ipspot,
+		light_logo: ipspot,
+		account: 'openscilab',
+		github: 'https://github.com/openscilab/ipspot',
+		webLink: 'https://github.com/openscilab/ipspot',
+		forkPage: 'https://github.com/openscilab/ipspot/fork',
+		starsPage: 'https://github.com/openscilab/ipspot/stargazers',
+		description: `IPSpot is a Python library for retrieving the current system's IP address and location information. It currently supports public and private IPv4 detection using multiple API providers with a fallback mechanism for reliability. Designed with simplicity and modularity in mind, IPSpot offers quick IP and geolocation lookups directly from your machine.`,
 	},
 ];
